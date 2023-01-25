@@ -25,7 +25,7 @@ giscus_category_id: REPLACEME
 # Theme-specific settings
 minima:
   skin: dark # Temporary
-social_links:
+  social_links:
   - { platform: devto,          user_url: "https://dev.to/jekyll" }
   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #   - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }

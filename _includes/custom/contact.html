@@ -1,0 +1,6 @@
+<ul class="contact-list">
+    <li><a href="mailto:{{ site.email }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#email' | relative_url }}"></use></svg> <span class="username">{{ site.email }}</span></a></li>
+    <li><a href="{{ site.github.repository_url }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#repository' | relative_url }}"></use></svg> <span class="username">{{ site.github.repository_nwo | default: "GitHub/example" }}</span></a></li>
+    <li><a href="{{ 'feed.xml' | relative_url }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use></svg> <span class="username">{{ site.rss | escape }}</span></a></li>
+    <li><a href="{{ site.substack_url }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#substack' | relative_url }}"></use></svg> <span class="username">{{ site.substack }}</span></a></li>
+</ul>
