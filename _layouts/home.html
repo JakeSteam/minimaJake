@@ -24,19 +24,23 @@ layout: default
     <ul class="post-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
-      <li>
+      <li class="card">
         <a class="post-link" href="{{ post.url | relative_url }}">
           <div class="bg-img" style="background-image: url({{post.image}})"></div>
         </a>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <span class="post-meta">{{ post.date | date: date_format }} • {% include custom/read_time.html %} • {% include custom/tags.html %}</span>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt | strip_html }}
-        {%- endif -%}
+        <div class="content">
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          <span class="post-meta">{{ post.date | date: date_format }} • {% include custom/read_time.html %} • {% include custom/tags.html %}</span>
+          <p>
+            {%- if site.show_excerpts -%}
+              {{ post.excerpt | strip_html }}
+            {%- endif -%}
+          </p>
+        </div>
       </li>
       {%- endfor -%}
     </ul>
