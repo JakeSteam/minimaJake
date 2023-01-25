@@ -1,36 +1,33 @@
-title: Your awesome title
-author:
-  name: GitHub User
-  email: your-email@domain.com
-
-# The `>` after `description:` means to ignore line-breaks until next key.
-# If you want to omit the line-break after the end of text, use `>-` instead.
-description: >
-  Write an awesome description for your new site here. You can edit this line
-  in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.
+# Blog settings
+title: MinimaJake
+description: This is the core minima fork used for Jake sites
+baseurl: "" # Does this do anything?
+url: "https://core.jakelee.co.uk" # Does this do anything?
+permalink: /:title/
+show_excerpts: true
+timezone: Europe/London
 
 # Build settings
-
-theme: minima
-
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
   - jekyll-seo-tag
 
+# Custom add-on settings
+paginate: 10
+paginate_path: page/:num/
+giscus_repo: REPLACEME
+giscus_repo_id: REPLACEME
+giscus_category: Comments
+giscus_category_id: REPLACEME
+
 # Theme-specific settings
-
 minima:
-  # Minima date format.
-  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  #
-  # date_format: "%b %-d, %Y"
-
-  # Generate social links in footer.
-  #
-  # social_links:
-  #   - { platform: devto,          user_url: "https://dev.to/jekyll" }
-  #   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
+  skin: dark # Temporary
+social_links:
+  - { platform: devto,          user_url: "https://dev.to/jekyll" }
+  - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #   - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
   #   - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
   #   - { platform: github,         user_url: "https://github.com/jekyll/minima" }
@@ -44,13 +41,3 @@ minima:
   #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
   #   - { platform: twitter,        user_url: "https://twitter.com/jekyllrb" }
   #   - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
-
-# If you want to link only specific pages in your header, uncomment this and add the path to the pages in
-# order as they should show up.
-#
-# header_pages:
-#   - about.md
-
-# Set to `true` to show excerpts on the homepage.
-#
-# show_excerpts: false
