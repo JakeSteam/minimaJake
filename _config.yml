@@ -21,6 +21,13 @@ giscus_repo: REPLACEME
 giscus_repo_id: REPLACEME
 giscus_category: Comments
 giscus_category_id: REPLACEME
+kofi_enabled: true
+
+# Syntax highlighter settings
+kramdown:
+  syntax_highlighter_opts:
+    default_lang: kotlin
+    guess_lang: true
 
 # Theme-specific settings
 minima:

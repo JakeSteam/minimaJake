@@ -58,4 +58,8 @@ layout: default
 
   {%- endif -%}
 
+  {% if site.kofi_enabled %}
+      {% include custom/donatefloating.html %}
+  {% endif %}
+
 </div>

@@ -4,35 +4,55 @@ layout: default
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
+    <a href="{{page.image}}"><div class="bg-img" style="background-image: url({{page.image}})"></div></a>
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: date_format }}
       </time>
-      {%- if page.modified_date -%}
-        ~ 
-        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
-        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
-          {{ mdate | date: date_format }}
-        </time>
-      {%- endif -%}
       {%- if page.author -%}
         • {% for author in page.author %}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            <span class="p-author h-card" itemprop="name">{{ author }} </span></span>
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
-      {%- endif -%}</p>
+      {%- endif -%}
+      •
+      {% include custom/tags.html %}</p>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+  <div class="toc">
+    <b>Jump to:</b>
+    {% include custom/contents.html html=content %}
   </div>
 
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
+  <div class="post-content e-content" itemprop="articleBody">
+    {% include custom/anchor_headings.html html=content beforeHeading=true anchorBody="<svg class='octicon' viewBox='0 0 16 16' version='1.1' width='16' height='32' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>" %}
+  </div>
+
+  <i><b>Enjoyed this article? You'll like "<a href="{{ site.substack_url }}">{{ site.substack }}</a>", a weekly newsletter of articles & found media!</b></i><br><br>
+
+  {% if site.kofi_enabled %}
+    {% include custom/donatebutton.html %}<br><br>
+  {% endif %}
+
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ site.giscus_repo }}"
+    data-repo-id="{{ site.giscus_repo_id }}"
+    data-category="{{ site.giscus_category }}"
+    data-category-id="{{ site.giscus_category_id }}"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
