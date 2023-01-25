@@ -15,7 +15,6 @@ plugins:
 paginate: 10
 paginate_path: page/:num/
 substack: Jake Week Lee
-substack_url: https://jakeweeklee.substack.com/
 
 # Syntax highlighter settings
 kramdown:
@@ -27,23 +26,24 @@ kramdown:
 minima:
  # Temporary
   social_links:
+    - { platform: github, user_url: "https://github.com/JakeSteam" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/Jake-Lee" }
+    - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/608312/Jake-Lee" }
+    - { platform: twitter, user_url: "https://www.twitter.com/JakeLeeUK" }
+    - { platform: email, user_url: "mailto:core@jakelee.co.uk", user_title: "core@jakelee.co.uk" }
+    - { platform: code, user_url: "https://github.com/JakeSteam/blog-core", user_title: "JakeSteam/blog-core" }
+    - { platform: rss, user_url: "/feed.xml", user_title: "RSS" }
+    - { platform: substack, user_url: "https://jakeweeklee.substack.com/", user_title: "Jake Week Lee" }
   #   - { platform: devto,          user_url: "https://dev.to/jekyll" }
   #   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #   - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
   #   - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
-    - { platform: github,         user_url: "https://github.com/JakeSteam" }
   #   - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ" }
   #   - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
   #   - { platform: keybase,        user_url: "https://keybase.io/jekyll" }
-    - { platform: linkedin,       user_url: "https://www.linkedin.com/in/Jake-Lee" }
   #   - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
   #   - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
-    - { platform: stackoverflow,  user_url: "https://stackoverflow.com/users/608312/Jake-Lee" }
   #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
-    - { platform: twitter,        user_url: "https://www.twitter.com/JakeLeeUK" }
-    - { platform: substack,        user_url: "https://www.twitter.com/JakeLeeUK" }
-    - { platform: code,        user_url: "https://www.twitter.com/JakeLeeUK" }
-    - { platform: email,        user_url: "https://www.twitter.com/JakeLeeUK" }
   #   - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
 
 # Fork config
@@ -56,4 +56,3 @@ kofi_enabled: true
 title: MinimaJake
 description: This is the core minima fork used for Jake sites
 url: "https://core.jakelee.co.uk" # Does this do anything?
-email: core@jakelee.co.uk
