@@ -1,8 +1,5 @@
-# Blog settings
-title: MinimaJake
-description: This is the core minima fork used for Jake sites
+# Site settings
 baseurl: "" # Does this do anything?
-url: "https://core.jakelee.co.uk" # Does this do anything?
 permalink: /:title/
 show_excerpts: true
 timezone: Europe/London
@@ -17,11 +14,6 @@ plugins:
 # Custom add-on settings
 paginate: 10
 paginate_path: page/:num/
-giscus_repo: REPLACEME
-giscus_repo_id: REPLACEME
-giscus_category: Comments
-giscus_category_id: REPLACEME
-kofi_enabled: true
 
 # Syntax highlighter settings
 kramdown:
@@ -48,3 +40,14 @@ minima:
   #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
   #   - { platform: twitter,        user_url: "https://twitter.com/jekyllrb" }
   #   - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
+
+# Fork config
+accent_colour: "#075e78"
+giscus_repo: REPLACEME
+giscus_repo_id: REPLACEME
+giscus_category: Comments
+giscus_category_id: REPLACEME
+kofi_enabled: true
+title: MinimaJake
+description: This is the core minima fork used for Jake sites
+url: "https://core.jakelee.co.uk" # Does this do anything?

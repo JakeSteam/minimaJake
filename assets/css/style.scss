@@ -5,3 +5,147 @@
 @import
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
+
+/* Misc tidying of overall layout */
+.content {
+  padding: 15px;
+}
+
+.site-header {
+  border-top: 5px solid {{ site.accent_colour }};
+}
+
+.card {
+  border: 1px solid {{ site.accent_colour }};
+  border-radius: .25rem;
+}
+
+.bg-img {
+  background-size: cover;
+  min-height: 180px;
+  background-position: center;
+  background-color: #fff;
+}
+
+.post-title {
+  line-height: 1.3;
+}
+
+.post-header .bg-img {
+  background-size: cover;
+  min-height: 180px;
+  background-position: center;
+  background-color: #fff;
+  border: 1px solid {{ site.accent_colour }};
+  border-radius: .25rem;
+}
+
+/* Fixes the in-post indent applying to homepage */
+.homepage-title {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+/* Fixes weird table word break behaviour */
+table {
+  table-layout: fixed;
+  word-break: break-word;
+}
+
+/* Fixes "tag" styling */
+.tag,
+.tag:visited {
+  color: #828282;
+}
+
+/* Fixes code block styling */
+.highlight,
+code {
+    background-color: #f8fbff !important;
+}
+
+/* Fixes icon / username alignment in footer */
+.username,
+.svg-icon {
+    vertical-align: middle;
+}
+
+/* Styles the pagination & link to other blog */
+.centred-homepage-content {
+  width: 100%;
+  text-align: center;
+}
+
+/* Adds extra padding to top right links */
+.page-link {
+  padding: 5px;
+}
+
+/* Adds GitHub style links to headers on mouseover */
+.post-content h2 {
+  text-indent: -10px;
+  overflow-wrap: break-word;
+}
+
+.post-content h3 {
+  text-indent: -8px;
+  overflow-wrap: break-word;
+}
+
+.post-content h4 {
+  text-indent: -6px;
+  overflow-wrap: break-word;
+}
+
+.post-content h5 {
+  text-indent: -4px;
+  overflow-wrap: break-word;
+}
+
+.post-content h6 {
+  text-indent: -2px;
+  overflow-wrap: break-word;
+}
+
+h1 .octicon, h2 .octicon, h3 .octicon, h4 .octicon, h5 .octicon, h6 .octicon {
+  visibility: hidden;
+}
+
+h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:hover .octicon, h6:hover .octicon {
+  visibility: visible;
+}
+
+.octicon {
+  fill: currentColor;
+  padding: 0;
+  margin-left: -16px;
+  vertical-align: middle;
+}
+
+/* Table of contents */
+.toc {
+  float: right;
+  border: 1px solid {{ site.accent_colour }};
+  border-radius: 0.25rem;
+  padding-top: 15px;
+  padding-right: 15px;
+  margin-left: 15px;
+}
+
+.toc b {
+  margin-left: 20px;
+}
+
+.toc ul {
+  list-style: none;
+  margin-left: 10px;
+}
+
+.toc li {
+  margin-left: 10px;
+}
+
+/* Override of article link on homepage */
+.post-link {
+  color: {{ site.accent_colour }} !important;
+}
