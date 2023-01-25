@@ -14,6 +14,8 @@ plugins:
 # Custom add-on settings
 paginate: 10
 paginate_path: page/:num/
+substack: Jake Week Lee
+substack_url: https://jakeweeklee.substack.com/
 
 # Syntax highlighter settings
 kramdown:
@@ -23,7 +25,7 @@ kramdown:
 
 # Theme-specific settings
 minima:
-  skin: dark # Temporary
+ # Temporary
   social_links:
   - { platform: devto,          user_url: "https://dev.to/jekyll" }
   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
