@@ -1,0 +1,7 @@
+{% capture words %}
+{{ post.content | number_of_words | minus: 180 }}
+{% endcapture %}
+{% unless words contains '-' %}
+{% assign minutes = words | plus: 150 | divided_by: 150 %}
+{{ minutes }} min{% if minutes > 1 %}s{% endif %}
+{% endunless %}

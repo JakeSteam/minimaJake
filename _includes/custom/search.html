@@ -1,0 +1,75 @@
+<script src="/assets/js/lunr.js"></script>
+
+<script>
+    {% assign counter = 0 %}
+    var documents = [{% for page in site.posts %}{
+        "id": {{ counter }},
+        "url": "{{ site.url }}{{ page.url }}",
+        "title": "{{ page.title }}",
+        "tags": "{{ page.tags | join: ", " }}",
+        "published": "{{ page.date | date: "%Y/%m/%d" }}",
+        "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+        }{% if forloop.last %}{% else %}, {% endif %}{% endfor %}];
+
+    var idx = lunr(function () {
+        this.ref('id')
+        this.field('title')
+        this.field('body')
+        this.field('tags')
+        this.field('published')
+
+        documents.forEach(function (doc) {
+            this.add(doc)
+        }, this)
+    });
+    function lunr_search(term) {
+        document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
+        if(term) {
+            var results = idx.search(term);
+            document.getElementById('lunrsearchresults').innerHTML = "<p>" + results.length + " results for '" + term + "'</p>" + document.getElementById('lunrsearchresults').innerHTML;
+            if(results.length>0){
+                for (var i = 0; i < results.length; i++) {
+                    var ref = results[i]['ref'];
+                    var url = documents[ref]['url'];
+                    var title = documents[ref]['title'];
+                    var tags = documents[ref]['tags']
+                    var published = documents[ref]['published']
+                    var body = documents[ref]['body'].substring(0,220)+'...';
+                    document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'>" + 
+                        "<span class='title'>" + title + "</span><br />" +
+                        "<span class='url'>" + published + " - " + tags + "</span><br />" +
+                        "<span class='body'>"+ body +"</span><br />" +
+                        "<span class='url'>"+ url +"</span></a></li>";
+                }
+            }
+        }
+        return false;
+    }
+    window.addEventListener('load', function() {
+        var searchParam = new URLSearchParams(window.location.search).get("q")
+        if (searchParam != null) {
+            document.getElementById('lunrsearch').value = searchParam
+            lunr_search(searchParam)
+        }
+    }, false);
+</script>
+<style>
+    #lunrsearchresults {padding-top: 0.2rem;}
+    .lunrsearchresult {
+        list-style-type: none;
+        padding-bottom: 1rem;
+    }
+    .lunrsearchresult .title {color: #2a7ae2;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: black;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form id="searchform" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <p><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="What are you looking for?" autofocus /></p>
+</form>
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
