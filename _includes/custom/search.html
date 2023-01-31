@@ -4,7 +4,7 @@
     {% assign counter = 0 %}
     var documents = [{% for page in site.posts %}{
         "id": {{ counter }},
-        "url": "{{ site.url }}{{ page.url }}",
+        "url": "{{ page.url }}",
         "title": "{{ page.title }}",
         "tags": "{{ page.tags | join: ", " }}",
         "published": "{{ page.date | date: "%Y/%m/%d" }}",

@@ -14,7 +14,6 @@ plugins:
 # Custom add-on settings
 paginate: 10
 paginate_path: page/:num/
-substack: Jake Week Lee
 
 # Syntax highlighter settings
 kramdown:
@@ -24,7 +23,6 @@ kramdown:
 
 # Theme-specific settings
 minima:
- # Temporary
   social_links:
     - { platform: github, user_url: "https://github.com/JakeSteam" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/Jake-Lee" }
@@ -48,11 +46,14 @@ minima:
 
 # Fork config
 accent_colour: "#075e78"
+title: MinimaJake
+description: This is the core minima fork used for Jake sites
+post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a weekly newsletter of articles & found media!</b></i>
+
+table_of_contents_header: "Jump to:"
 giscus_repo: REPLACEME
 giscus_repo_id: REPLACEME
 giscus_category: Comments
 giscus_category_id: REPLACEME
-kofi_enabled: true
-title: MinimaJake
-description: This is the core minima fork used for Jake sites
-url: "https://core.jakelee.co.uk" # Does this do anything?
+kofi_id: G2G65MT2X
+kofi_text: Tip on Ko-fi
