@@ -1,5 +1,4 @@
 # Site settings
-baseurl: "" # Does this do anything?
 permalink: /:title/
 show_excerpts: true
 timezone: Europe/London
@@ -11,7 +10,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Custom add-on settings
+# Pagination settings
 paginate: 10
 paginate_path: page/:num/
 

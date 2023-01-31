@@ -40,6 +40,26 @@
   border-radius: .25rem;
 }
 
+.contact-list .svg-icon {
+  padding-right: 5px;
+}
+
+.contact-list a:hover {
+  text-decoration: none;
+}
+
+.contact-list a:hover .username {
+  text-decoration: underline;
+}
+
+.svg-icon {
+  fill: #828282;
+}
+
+a:hover .svg-icon {
+  fill: {{ site.accent_colour }};
+}
+
 /* Fixes the in-post indent applying to homepage */
 .homepage-title {
   margin-left: 0px;

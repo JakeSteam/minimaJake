@@ -39,7 +39,7 @@
     {% if paginator.previous_page %}
       <span class="page-item blog_previous">
         <a class="page-link" 
-           href="{{ site.baseurl }}{{ paginator.previous_page_path }}"
+           href="{{ paginator.previous_page_path }}"
            rel="prev">&laquo; Previous</a>
       </span>
     {% endif %}
@@ -135,7 +135,7 @@
     {% if paginator.next_page %}
       <span class="page-item blog_next">
         <a class="page-link" 
-           href="{{ site.baseurl }}{{ paginator.next_page_path }}" 
+           href="{{ paginator.next_page_path }}" 
            rel="next">Next &raquo;</a>
       </span>
     {% endif %}
