@@ -174,8 +174,3 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
 .toc li {
   margin-left: 10px;
 }
-
-/* Override of article link on homepage */
-.post-link {
-  color: {{ site.accent_colour }} !important;
-}
