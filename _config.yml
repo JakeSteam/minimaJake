@@ -1,26 +1,23 @@
-# Site settings
-permalink: /:title/
-show_excerpts: true
-timezone: Europe/London
+# Basic site setup
+title: MinimaJake
+description: This is the core minima fork used for Jake sites
+accent_colour: "#075e78"
 
-# Build settings
-plugins:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-seo-tag
+# Optional native feature customisation (delete to turn off)
+table_of_contents_header: "Jump to:"
+post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a weekly newsletter of articles & found media!</b></i>
+google_analytics: G-HRJSZQJJ2G
 
-# Pagination settings
-paginate: 10
-paginate_path: page/:num/
+# Third party feature customisation (delete to turn off)
+giscus_repo: JakeSteam/minimaJake
+giscus_repo_id: R_kgDOI3xllA
+giscus_category: Comments
+giscus_category_id: DIC_kwDOI3xllM4CT62g
+kofi_id: internethistory
+kofi_button_text: Tip on Ko-fi
+kofi_floating_text: Tip / Suggest
 
-# Syntax highlighter settings
-kramdown:
-  syntax_highlighter_opts:
-    default_lang: kotlin
-    guess_lang: true
-
-# Theme-specific settings
+# Social / dark mode settings
 minima:
   skin: auto
   social_links:
@@ -44,18 +41,28 @@ minima:
   #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
   #   - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
 
-# Fork config
-accent_colour: "#075e78"
-title: MinimaJake
-description: This is the core minima fork used for Jake sites
-post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a weekly newsletter of articles & found media!</b></i>
-google_analytics: G-HRJSZQJJ2G
+###
+# Below here probably doesn't need changing #
+###
 
-table_of_contents_header: "Jump to:"
-giscus_repo: REPLACEME
-giscus_repo_id: REPLACEME
-giscus_category: Comments
-giscus_category_id: REPLACEME
-kofi_id: internethistory
-kofi_button_text: Tip on Ko-fi
-kofi_floating_text: Tip / Suggest
+# Site settings
+permalink: /:title/
+show_excerpts: true
+timezone: Europe/London
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Pagination settings
+paginate: 10
+paginate_path: page/:num/
+
+# Syntax highlighter settings
+kramdown:
+  syntax_highlighter_opts:
+    default_lang: kotlin
+    guess_lang: true
