@@ -53,7 +53,7 @@ layout: default
 
   {%- endif -%}
 
-  {% if site.kofi_enabled %}
+  {% if site.kofi_floating_text != blank? and site.kofi_id != blank? %}
       {% include custom/donatefloating.html %}
   {% endif %}
 

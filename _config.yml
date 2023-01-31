@@ -49,11 +49,13 @@ accent_colour: "#075e78"
 title: MinimaJake
 description: This is the core minima fork used for Jake sites
 post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a weekly newsletter of articles & found media!</b></i>
+google_analytics: G-HRJSZQJJ2G
 
 table_of_contents_header: "Jump to:"
 giscus_repo: REPLACEME
 giscus_repo_id: REPLACEME
 giscus_category: Comments
 giscus_category_id: REPLACEME
-kofi_id: G2G65MT2X
-kofi_text: Tip on Ko-fi
+kofi_id: internethistory
+kofi_button_text: Tip on Ko-fi
+kofi_floating_text: Tip / Suggest

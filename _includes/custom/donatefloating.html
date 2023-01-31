@@ -1,9 +1,9 @@
 <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 <script>
-  kofiWidgetOverlay.draw('internethistory', {
+  kofiWidgetOverlay.draw('{{ site.kofi_id }}', {
     'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Tip / Suggest',
-    'floating-chat.donateButton.background-color': '#075e78',
+    'floating-chat.donateButton.text': '{{ site.kofi_floating_text }}',
+    'floating-chat.donateButton.background-color': '{{ site.accent_colour }}',
     'floating-chat.donateButton.text-color': '#fff'
   });
 </script>

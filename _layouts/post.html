@@ -37,7 +37,7 @@ layout: default
     {{ site.post_end_promo }}<br><br>
   {% endif %}
 
-  {% if site.kofi_id != blank? %}
+  {% if site.kofi_button_text != blank? and site.kofi_id != blank? %}
     {% include custom/donatebutton.html %}<br><br>
   {% endif %}
 
