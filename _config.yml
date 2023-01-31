@@ -22,6 +22,7 @@ kramdown:
 
 # Theme-specific settings
 minima:
+  skin: auto
   social_links:
     - { platform: github, user_url: "https://github.com/JakeSteam" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/Jake-Lee" }
@@ -29,7 +30,7 @@ minima:
     - { platform: twitter, user_url: "https://www.twitter.com/JakeLeeUK" }
     - { platform: email, user_url: "mailto:core@jakelee.co.uk", user_title: "core@jakelee.co.uk" }
     - { platform: code, user_url: "https://github.com/JakeSteam/blog-core", user_title: "JakeSteam/blog-core" }
-    - { platform: rss, user_url: "/feed.xml", user_title: "RSS" }
+    - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }
     - { platform: substack, user_url: "https://jakeweeklee.substack.com/", user_title: "Jake Week Lee" }
   #   - { platform: devto,          user_url: "https://dev.to/jekyll" }
   #   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
