@@ -4,15 +4,32 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+This project is a fork of the default [minima theme](https://github.com/jekyll/minima) that [Jekyll](https://github.com/jekyll/jekyll) uses, aiming to add enough functionality to make minima a realistic choice, without any bloat / nonsense.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+## About 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+minimaJake is used to host [JakeSteam](https://github.com/JakeSteam)'s [personal](https://jakelee.co.uk), [programming](https://blog.jakelee.co.uk), and [internet history](https://history.jakelee.co.uk) sites.
 
+This is the live demo, a full guide to all features is available in [the announcement post](https://blog.jakelee.co.uk/introducing-minimajake-for-jekyll/).
 
-[jekyll-organization]: https://github.com/jekyll
+## Changes
+
+Native (liquid) features:
+
+* Table of contents
+* Linkable headers
+* Tag system
+* End of post call to action
+* Social & meta link system in footer
+
+Third party features:
+
+* Search (via lunr.js)
+* Giscus comments
+* Configurable Ko-fi donation button & floating prompt
+
+Design changes:
+
+* Banner images
+* Accent colour system
+
