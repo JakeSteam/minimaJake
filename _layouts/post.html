@@ -24,7 +24,7 @@ layout: default
 
   {% if site.table_of_contents_header != blank? %}
     <div class="toc">
-      <b>Jump to:</b>
+      <b>{{ site.table_of_contents_header }}</b>
       {% include custom/contents.html html=content %}
     </div>
   {% endif %}
