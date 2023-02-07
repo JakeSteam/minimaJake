@@ -28,3 +28,6 @@ Design changes:
 
 * Banner images
 * Accent colour system
+
+[![](https://blog.jakelee.co.uk/assets/images/2023/minimajake.png)](https://blog.jakelee.co.uk/assets/images/2023/minimajake.png)
+
