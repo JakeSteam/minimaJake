@@ -41,7 +41,7 @@ layout: page
 
 <!-- HTML search field -->
 <form id="searchform">
-  <p><input type="text" id="search-input" class="form-control" name="q" maxlength="255" value="" placeholder="Type your search here..." autofocus /></p>
+  <p><input type="text" id="search-input" class="form-control" name="q" maxlength="255" value="" autofocus /></p>
 </form>
   <div id="lunrsearchresults"><ul></ul></div>
 
@@ -50,7 +50,7 @@ layout: page
 
 <!-- Configuration -->
 <script>
-SimpleJekyllSearch({
+var sjs = SimpleJekyllSearch({
   searchInput: document.getElementById('searchform'),
   resultsContainer: document.getElementById('lunrsearchresults'),
   json: '/assets/js/posts.json',
@@ -60,4 +60,14 @@ SimpleJekyllSearch({
     "<span class='body'>{title}</span><br />" +
     "<span class='url'>{url}</span></a></li>"
 })
+
+    window.addEventListener('load', function() {
+        var searchParam = new URLSearchParams(window.location.search).get("q")
+        if (searchParam != null) {
+            document.getElementById('search-input').value = searchParam
+            sjs.search(searchParam)
+        } 
+    
+          document.getElementById('search-input').placeholder = "Type your search here..."
+    }, false);
 </script>
