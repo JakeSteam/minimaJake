@@ -33,7 +33,7 @@ layout: page
         padding-bottom: 1rem;
     }
     .lunrsearchresult .title {color: #2a7ae2;}
-    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult .meta {color: silver;}
     .lunrsearchresult a {display: block; color: black;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
     .lunrsearchresult a:hover .title {text-decoration: underline;}
@@ -56,9 +56,9 @@ var sjs = SimpleJekyllSearch({
   json: '/assets/js/posts.json',
   searchResultTemplate: "<li class='lunrsearchresult'><a href='{url}'>" +
     "<span class='title'>{title}</span><br />" + 
-    "<span class='url'>{date} - {tags}</span><br />" +
-    "<span class='body'>{title}</span><br />" +
-    "<span class='url'>{url}</span></a></li>"
+    "<span class='meta'>{date} - {tags}</span><br />" +
+    "<span class='body'>{excerpt}</span><br />" +
+    "<span class='meta'>{url}</span></a></li>"
 })
 
     window.addEventListener('load', function() {

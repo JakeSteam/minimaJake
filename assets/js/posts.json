@@ -4,12 +4,12 @@ layout: none
 [
   {% for post in site.posts %}
     {
-      "title"    : "{{ post.title | escape }}",
-      "category" : "{{ post.category }}",
+      "title"    : {{ post.title | jsonify | strip_html }},
       "tags"     : "{{ post.tags | join: ', ' }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
       "date"     : "{{ post.date | date: "%Y/%m/%d" }}",
-      "content"  : {{ post.content | jsonify }}
+      "excerpt" : {{ post.excerpt | jsonify | strip_html }},
+      "content"  : {{ post.content | jsonify | strip_html }}
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
