@@ -57,8 +57,7 @@ var sjs = SimpleJekyllSearch({
   searchResultTemplate: "<li class='lunrsearchresult'><a href='{url}'>" +
     "<span class='title'>{title}</span><br />" + 
     "<span class='meta'>{date} - {tags}</span><br />" +
-    "<span class='body'>{excerpt}</span><br />" +
-    "<span class='meta'>{url}</span></a></li>"
+    "<span class='body'>{excerpt}</span></a></li>"
 })
 
     window.addEventListener('load', function() {
