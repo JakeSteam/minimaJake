@@ -5,7 +5,7 @@
     var documents = [{% for page in site.posts %}{
         "id": {{ counter }},
         "url": "{{ page.url }}",
-        "title": "{{ page.title }}",
+        "title": "{{ page.title | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}",
         "tags": "{{ page.tags | join: ", " }}",
         "published": "{{ page.date | date: "%Y/%m/%d" }}",
         "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
