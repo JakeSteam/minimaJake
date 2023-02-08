@@ -1,6 +1,6 @@
 # Basic site setup
-title: MinimaJake
-description: This is the core minima fork used for Jake sites
+title: minimaJake
+description: An example of & updates from the minima fork minimaJake
 accent_colour: "#075e78"
 
 # Optional native feature customisation (delete to turn off)
