@@ -15,6 +15,7 @@ Native (liquid) features:
 * Table of contents
 * Linkable headers
 * Tag system
+* Pagination improvements
 * End of post call to action
 * Social & meta link system in footer
 
