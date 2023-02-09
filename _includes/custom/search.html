@@ -11,7 +11,7 @@
 <form id="searchform">
   <p><input type="text" id="search-input" class="form-control" name="q" value="" autofocus /></p>
 </form>
-<div id="searchresults"></div>
+<ul id="searchresults" class="post-list"></ul>
 
 <script src="/assets/js/search.js" type="text/javascript"></script>
 
@@ -21,10 +21,13 @@
     searchInput: document.getElementById('searchform'),
     resultsContainer: document.getElementById('searchresults'),
     json: '/assets/js/posts.json',
-    searchResultTemplate: "<div class='searchresult'><a href='{url}'>" +
-        "<span class='title'>{title}</span><br />" + 
-        "<span class='meta'>{date} - {tags}</span><br />" +
-        "<span class='body'>{excerpt}</span></a></div><br>"
+    searchResultTemplate: "<li class='card'>" +
+        "<div class='content'>" +
+          "<a class='post-link' href='{url}'>{title}</a>" +
+          "<span class='post-meta'>{date} • {tags}</span>" +
+          "<p>{excerpt}</p>" +
+        "</div>" +
+      "</li>" 
     })
 
     window.addEventListener('load', function() {
