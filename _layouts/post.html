@@ -23,10 +23,7 @@ layout: default
   </header>
 
   {% if site.table_of_contents_header != blank? %}
-    <div class="toc">
-      <b>{{ site.table_of_contents_header }}</b>
-      {% include custom/contents.html html=content sanitize=true h_max=4 %}
-    </div>
+    {% include custom/contents.html html=content sanitize=true h_max=4 %}
   {% endif %}
 
   <div class="post-content e-content" itemprop="articleBody">
