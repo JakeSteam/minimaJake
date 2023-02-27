@@ -11,6 +11,12 @@
       resultsContainer: document.getElementById('searchresults'),
       json: '/assets/js/posts.json',
       noResultsText: 'No results found :(',
+      templateMiddleware: function(prop, value, template) {
+        return value.replace(
+          document.getElementById('search-input').value, 
+          '<span class="highlight">$&</span>'
+        )
+      },
       searchResultTemplate: "<li class='card'>" +
           "<div class='content'>" +
             "<a class='post-link' href='{url}'>{title}</a>" +

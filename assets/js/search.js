@@ -3,4 +3,431 @@
   * Copyright 2015-2020, Christian Fei
   * Licensed under the MIT License.
   */
-!function(){"use strict";var f={compile:function(r){return i.template.replace(i.pattern,function(t,e){var n=i.middleware(e,r[e],i.template);return void 0!==n?n:r[e]||t})},setOptions:function(t){i.pattern=t.pattern||i.pattern,i.template=t.template||i.template,"function"==typeof t.middleware&&(i.middleware=t.middleware)}};const i={pattern:/\{(.*?)\}/g,template:"",middleware:function(){}};var n=function(t,e){var n=e.length,r=t.length;if(n<r)return!1;if(r===n)return t===e;t:for(var i=0,o=0;i<r;i++){for(var u=t.charCodeAt(i);o<n;)if(e.charCodeAt(o++)===u)continue t;return!1}return!0},e=new function(){this.matches=function(t,e){return n(e.toLowerCase(),t.toLowerCase())}},r=new function(){this.matches=function(e,t){return!!e&&(e=e.trim().toLowerCase(),(t=t.trim().toLowerCase()).split(" ").filter(function(t){return 0<=e.indexOf(t)}).length===t.split(" ").length)}},d={put:function(t){if(l(t))return a(t);if(function(t){return Boolean(t)&&"[object Array]"===Object.prototype.toString.call(t)}(t))return function(n){const r=[];s();for(let t=0,e=n.length;t<e;t++)l(n[t])&&r.push(a(n[t]));return r}(t);return undefined},clear:s,search:function(t){return t?function(e,n,r,i){const o=[];for(let t=0;t<e.length&&o.length<i.limit;t++){var u=function(t,e,n,r){for(const i in t)if(!function(n,r){for(let t=0,e=r.length;t<e;t++){var i=r[t];if(new RegExp(i).test(n))return!0}return!1}(t[i],r.exclude)&&n.matches(t[i],e))return t}(e[t],n,r,i);u&&o.push(u)}return o}(u,t,c.searchStrategy,c).sort(c.sort):[]},setOptions:function(t){c=t||{},c.fuzzy=t.fuzzy||!1,c.limit=t.limit||10,c.searchStrategy=t.fuzzy?e:r,c.sort=t.sort||o,c.exclude=t.exclude||[]}};function o(){return 0}const u=[];let c={};function s(){return u.length=0,u}function l(t){return Boolean(t)&&"[object Object]"===Object.prototype.toString.call(t)}function a(t){return u.push(t),u}c.fuzzy=!1,c.limit=10,c.searchStrategy=c.fuzzy?e:r,c.sort=o,c.exclude=[];var p={load:function(t,e){const n=window.XMLHttpRequest?new window.XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP");n.open("GET",t,!0),n.onreadystatechange=h(n,e),n.send()}};function h(e,n){return function(){if(4===e.readyState&&200===e.status)try{n(null,JSON.parse(e.responseText))}catch(t){n(t,null)}}}var m=function y(t){if(!(e=t)||!("undefined"!=typeof e.required&&e.required instanceof Array))throw new Error("-- OptionsValidator: required options missing");var e;if(!(this instanceof y))return new y(t);const r=t.required;this.getRequiredOptions=function(){return r},this.validate=function(e){const n=[];return r.forEach(function(t){"undefined"==typeof e[t]&&n.push(t)}),n}},w={merge:function(t,e){const n={};for(const r in t)n[r]=t[r],"undefined"!=typeof e[r]&&(n[r]=e[r]);return n},isJSON:function(t){try{return t instanceof Object&&JSON.parse(JSON.stringify(t))?!0:!1}catch(e){return!1}}};!function(t){let i={searchInput:null,resultsContainer:null,json:[],success:Function.prototype,searchResultTemplate:'<li><a href="{url}" title="{desc}">{title}</a></li>',templateMiddleware:Function.prototype,sortMiddleware:function(){return 0},noResultsText:"No results found",limit:10,fuzzy:!1,debounceTime:null,exclude:[]},n;const e=function(t,e){e?(clearTimeout(n),n=setTimeout(t,e)):t.call()};var r=["searchInput","resultsContainer","json"];const o=m({required:r});function u(t){d.put(t),i.searchInput.addEventListener("input",function(t){-1===[13,16,20,37,38,39,40,91].indexOf(t.which)&&(c(),e(function(){l(t.target.value)},i.debounceTime))})}function c(){i.resultsContainer.innerHTML=""}function s(t){i.resultsContainer.innerHTML+=t}function l(t){var e;(e=t)&&0<e.length&&(c(),function(e,n){var r=e.length;if(0===r)return s(i.noResultsText);for(let t=0;t<r;t++)e[t].query=n,s(f.compile(e[t]))}(d.search(t),t))}function a(t){throw new Error("SimpleJekyllSearch --- "+t)}t.SimpleJekyllSearch=function(t){var n;0<o.validate(t).length&&a("You must specify the following required options: "+r),i=w.merge(i,t),f.setOptions({template:i.searchResultTemplate,middleware:i.templateMiddleware}),d.setOptions({fuzzy:i.fuzzy,limit:i.limit,sort:i.sortMiddleware,exclude:i.exclude}),w.isJSON(i.json)?u(i.json):(n=i.json,p.load(n,function(t,e){t&&a("failed to get JSON ("+n+")"),u(e)}));t={search:l};return"function"==typeof i.success&&i.success.call(t),t}}(window)}();
+
+(function(){
+  'use strict'
+  
+  var _$Templater_7 = {
+    compile: compile,
+    setOptions: setOptions
+  }
+  
+  const options = {}
+  options.pattern = /\{(.*?)\}/g
+  options.template = ''
+  options.middleware = function () {}
+  
+  function setOptions (_options) {
+    options.pattern = _options.pattern || options.pattern
+    options.template = _options.template || options.template
+    if (typeof _options.middleware === 'function') {
+      options.middleware = _options.middleware
+    }
+  }
+  
+  function compile (data) {
+    return options.template.replace(options.pattern, function (match, prop) {
+      const value = options.middleware(prop, data[prop], options.template)
+      if (typeof value !== 'undefined') {
+        return value
+      }
+      return data[prop] || match
+    })
+  }
+  
+  'use strict';
+  
+  function fuzzysearch (needle, haystack) {
+    var tlen = haystack.length;
+    var qlen = needle.length;
+    if (qlen > tlen) {
+      return false;
+    }
+    if (qlen === tlen) {
+      return needle === haystack;
+    }
+    outer: for (var i = 0, j = 0; i < qlen; i++) {
+      var nch = needle.charCodeAt(i);
+      while (j < tlen) {
+        if (haystack.charCodeAt(j++) === nch) {
+          continue outer;
+        }
+      }
+      return false;
+    }
+    return true;
+  }
+  
+  var _$fuzzysearch_1 = fuzzysearch;
+  
+  'use strict'
+  
+  /* removed: const _$fuzzysearch_1 = require('fuzzysearch') */;
+  
+  var _$FuzzySearchStrategy_5 = new FuzzySearchStrategy()
+  
+  function FuzzySearchStrategy () {
+    this.matches = function (string, crit) {
+      return _$fuzzysearch_1(crit.toLowerCase(), string.toLowerCase())
+    }
+  }
+  
+  'use strict'
+  
+  var _$LiteralSearchStrategy_6 = new LiteralSearchStrategy()
+  
+  function LiteralSearchStrategy () {
+    this.matches = function (str, crit) {
+      if (!str) return false
+  
+      str = str.trim().toLowerCase()
+      crit = crit.trim().toLowerCase()
+  
+      return crit.split(' ').filter(function (word) {
+        return str.indexOf(word) >= 0
+      }).length === crit.split(' ').length
+    }
+  }
+  
+  'use strict'
+  
+  var _$Repository_4 = {
+    put: put,
+    clear: clear,
+    search: search,
+    setOptions: __setOptions_4
+  }
+  
+  /* removed: const _$FuzzySearchStrategy_5 = require('./SearchStrategies/FuzzySearchStrategy') */;
+  /* removed: const _$LiteralSearchStrategy_6 = require('./SearchStrategies/LiteralSearchStrategy') */;
+  
+  function NoSort () {
+    return 0
+  }
+  
+  const data = []
+  let opt = {}
+  
+  opt.fuzzy = false
+  opt.limit = 10
+  opt.searchStrategy = opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
+  opt.sort = NoSort
+  opt.exclude = []
+  
+  function put (data) {
+    if (isObject(data)) {
+      return addObject(data)
+    }
+    if (isArray(data)) {
+      return addArray(data)
+    }
+    return undefined
+  }
+  function clear () {
+    data.length = 0
+    return data
+  }
+  
+  function isObject (obj) {
+    return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Object]'
+  }
+  
+  function isArray (obj) {
+    return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Array]'
+  }
+  
+  function addObject (_data) {
+    data.push(_data)
+    return data
+  }
+  
+  function addArray (_data) {
+    const added = []
+    clear()
+    for (let i = 0, len = _data.length; i < len; i++) {
+      if (isObject(_data[i])) {
+        added.push(addObject(_data[i]))
+      }
+    }
+    return added
+  }
+  
+  function search (crit) {
+    if (!crit) {
+      return []
+    }
+    return findMatches(data, crit, opt.searchStrategy, opt).sort(opt.sort)
+  }
+  
+  function __setOptions_4 (_opt) {
+    opt = _opt || {}
+  
+    opt.fuzzy = _opt.fuzzy || false
+    opt.limit = _opt.limit || 10
+    opt.searchStrategy = _opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
+    opt.sort = _opt.sort || NoSort
+    opt.exclude = _opt.exclude || []
+  }
+  
+  function findMatches (data, crit, strategy, opt) {
+    const matches = []
+    for (let i = 0; i < data.length && matches.length < opt.limit; i++) {
+      const match = findMatchesInObject(data[i], crit, strategy, opt)
+      if (match) {
+        matches.push(match)
+      }
+    }
+    return matches
+  }
+  
+  function findMatchesInObject (obj, crit, strategy, opt) {
+    for (const key in obj) {
+      if (!isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit)) {
+        return obj
+      }
+    }
+  }
+  
+  function isExcluded (term, excludedTerms) {
+    for (let i = 0, len = excludedTerms.length; i < len; i++) {
+      const excludedTerm = excludedTerms[i]
+      if (new RegExp(excludedTerm).test(term)) {
+        return true
+      }
+    }
+    return false
+  }
+  
+  /* globals ActiveXObject:false */
+  
+  'use strict'
+  
+  var _$JSONLoader_2 = {
+    load: load
+  }
+  
+  function load (location, callback) {
+    const xhr = getXHR()
+    xhr.open('GET', location, true)
+    xhr.onreadystatechange = createStateChangeListener(xhr, callback)
+    xhr.send()
+  }
+  
+  function createStateChangeListener (xhr, callback) {
+    return function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        try {
+          callback(null, JSON.parse(xhr.responseText))
+        } catch (err) {
+          callback(err, null)
+        }
+      }
+    }
+  }
+  
+  function getXHR () {
+    return window.XMLHttpRequest ? new window.XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
+  }
+  
+  'use strict'
+  
+  var _$OptionsValidator_3 = function OptionsValidator (params) {
+    if (!validateParams(params)) {
+      throw new Error('-- OptionsValidator: required options missing')
+    }
+  
+    if (!(this instanceof OptionsValidator)) {
+      return new OptionsValidator(params)
+    }
+  
+    const requiredOptions = params.required
+  
+    this.getRequiredOptions = function () {
+      return requiredOptions
+    }
+  
+    this.validate = function (parameters) {
+      const errors = []
+      requiredOptions.forEach(function (requiredOptionName) {
+        if (typeof parameters[requiredOptionName] === 'undefined') {
+          errors.push(requiredOptionName)
+        }
+      })
+      return errors
+    }
+  
+    function validateParams (params) {
+      if (!params) {
+        return false
+      }
+      return typeof params.required !== 'undefined' && params.required instanceof Array
+    }
+  }
+  
+  'use strict'
+  
+  var _$utils_9 = {
+    merge: merge,
+    isJSON: isJSON
+  }
+  
+  function merge (defaultParams, mergeParams) {
+    const mergedOptions = {}
+    for (const option in defaultParams) {
+      mergedOptions[option] = defaultParams[option]
+      if (typeof mergeParams[option] !== 'undefined') {
+        mergedOptions[option] = mergeParams[option]
+      }
+    }
+    return mergedOptions
+  }
+  
+  function isJSON (json) {
+    try {
+      if (json instanceof Object && JSON.parse(JSON.stringify(json))) {
+        return true
+      }
+      return false
+    } catch (err) {
+      return false
+    }
+  }
+  
+  var _$src_8 = {};
+  (function (window) {
+    'use strict'
+  
+    let options = {
+      searchInput: null,
+      resultsContainer: null,
+      json: [],
+      success: Function.prototype,
+      searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+      templateMiddleware: Function.prototype,
+      sortMiddleware: function () {
+        return 0
+      },
+      noResultsText: 'No results found',
+      limit: 10,
+      fuzzy: false,
+      debounceTime: null,
+      exclude: []
+    }
+  
+    let debounceTimerHandle
+    const debounce = function (func, delayMillis) {
+      if (delayMillis) {
+        clearTimeout(debounceTimerHandle)
+        debounceTimerHandle = setTimeout(func, delayMillis)
+      } else {
+        func.call()
+      }
+    }
+  
+    const requiredOptions = ['searchInput', 'resultsContainer', 'json']
+  
+    /* removed: const _$Templater_7 = require('./Templater') */;
+    /* removed: const _$Repository_4 = require('./Repository') */;
+    /* removed: const _$JSONLoader_2 = require('./JSONLoader') */;
+    const optionsValidator = _$OptionsValidator_3({
+      required: requiredOptions
+    })
+    /* removed: const _$utils_9 = require('./utils') */;
+  
+    window.SimpleJekyllSearch = function (_options) {
+      const errors = optionsValidator.validate(_options)
+      if (errors.length > 0) {
+        throwError('You must specify the following required options: ' + requiredOptions)
+      }
+  
+      options = _$utils_9.merge(options, _options)
+  
+      _$Templater_7.setOptions({
+        template: options.searchResultTemplate,
+        middleware: options.templateMiddleware
+      })
+  
+      _$Repository_4.setOptions({
+        fuzzy: options.fuzzy,
+        limit: options.limit,
+        sort: options.sortMiddleware,
+        exclude: options.exclude
+      })
+  
+      if (_$utils_9.isJSON(options.json)) {
+        initWithJSON(options.json)
+      } else {
+        initWithURL(options.json)
+      }
+  
+      const rv = {
+        search: search
+      }
+  
+      typeof options.success === 'function' && options.success.call(rv)
+      return rv
+    }
+  
+    function initWithJSON (json) {
+      _$Repository_4.put(json)
+      registerInput()
+    }
+  
+    function initWithURL (url) {
+      _$JSONLoader_2.load(url, function (err, json) {
+        if (err) {
+          throwError('failed to get JSON (' + url + ')')
+        }
+        initWithJSON(json)
+      })
+    }
+  
+    function emptyResultsContainer () {
+      options.resultsContainer.innerHTML = ''
+    }
+  
+    function appendToResultsContainer (text) {
+      options.resultsContainer.innerHTML += text
+    }
+  
+    function registerInput () {
+      options.searchInput.addEventListener('input', function (e) {
+        if (isWhitelistedKey(e.which)) {
+          emptyResultsContainer()
+          debounce(function () { search(e.target.value) }, options.debounceTime)
+        }
+      })
+    }
+  
+    function search (query) {
+      if (isValidQuery(query)) {
+        emptyResultsContainer()
+        render(_$Repository_4.search(query), query)
+      }
+    }
+  
+    function render (results, query) {
+      const len = results.length
+      if (len === 0) {
+        return appendToResultsContainer(options.noResultsText)
+      }
+      for (let i = 0; i < len; i++) {
+        results[i].query = query
+        appendToResultsContainer(_$Templater_7.compile(results[i]))
+      }
+    }
+  
+    function isValidQuery (query) {
+      return query && query.length > 0
+    }
+  
+    function isWhitelistedKey (key) {
+      return [13, 16, 20, 37, 38, 39, 40, 91].indexOf(key) === -1
+    }
+  
+    function throwError (message) {
+      throw new Error('SimpleJekyllSearch --- ' + message)
+    }
+  })(window)
+  
+  }());
