@@ -13,7 +13,7 @@
       noResultsText: 'No results found :(',
       templateMiddleware: function(prop, value, template) {
         return value.replace(
-          document.getElementById('search-input').value, 
+          new RegExp(document.getElementById('search-input').value, "gi"), 
           '<span class="highlight">$&</span>'
         )
       },
