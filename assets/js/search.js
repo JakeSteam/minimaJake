@@ -183,6 +183,7 @@
   function findMatchesInObject (obj, crit, strategy, opt) {
     for (const key in obj) {
       if (!isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit)) {
+        obj.matchedField = key
         return obj
       }
     }

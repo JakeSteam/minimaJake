@@ -16,6 +16,11 @@
           '<span class="highlight">$&</span>'
         )
       },
+      sortMiddleware: function(a, b) {
+        aPrio = matchPriority(a.matchedField)
+        bPrio = matchPriority(b.matchedField)
+        return bPrio - aPrio
+      },
       searchResultTemplate: "<li class='card'>" +
           "<div class='content'>" +
             "<a class='post-link' href='{url}'>{title}</a>" +
@@ -24,6 +29,19 @@
           "</div>" +
         "</li>" 
       })
+    
+    function matchPriority (fieldMatched) {
+      switch (fieldMatched) {
+        case 'tags':
+          return 5;
+        case 'title':
+          return 4;
+        case 'excerpt': 
+          return 3;
+        default: 
+          return 0;
+      }
+    }
 
     window.addEventListener('load', function() {
         var searchParam = new URLSearchParams(window.location.search).get("q")
