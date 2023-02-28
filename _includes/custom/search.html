@@ -11,6 +11,9 @@
       resultsContainer: document.getElementById('searchresults'),
       json: '/assets/js/posts.json',
       templateMiddleware: function(prop, value, template) {
+        if (prop === "title" || prop === "excerpt") {
+          value = value.replace(/&amp;/g, "&");
+        }
         return value.replace(
           new RegExp(document.getElementById('search-input').value, "gi"), 
           '<span class="highlight">$&</span>'

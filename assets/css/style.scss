@@ -100,6 +100,10 @@ table {
   text-align: center;
 }
 
+.highlight {
+  background: {{ site.accent_colour }};
+}
+
 /* Adds extra padding to top right links */
 .page-link {
   padding: 5px;

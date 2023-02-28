@@ -310,7 +310,7 @@
         return 0
       },
       noResultsText: 'No results found :(',
-      resultsText: '{#} results found',
+      resultsText: '{#} result(s) found',
       limit: 10,
       fuzzy: false,
       debounceTime: null,
