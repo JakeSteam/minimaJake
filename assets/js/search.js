@@ -302,12 +302,14 @@
       resultsContainer: null,
       json: [],
       success: Function.prototype,
+      searchFinished: Function.prototype,
       searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
       templateMiddleware: Function.prototype,
       sortMiddleware: function () {
         return 0
       },
-      noResultsText: 'No results found',
+      noResultsText: 'No results found :(',
+      resultsText: '{#} results found',
       limit: 10,
       fuzzy: false,
       debounceTime: null,
@@ -408,9 +410,11 @@
   
     function render (results, query) {
       const len = results.length
+      typeof options.searchFinished === 'function' && options.searchFinished(len)
       if (len === 0) {
         return appendToResultsContainer(options.noResultsText)
-      }
+      } 
+      appendToResultsContainer(options.resultsText.replace("{#}", len))
       for (let i = 0; i < len; i++) {
         results[i].query = query
         appendToResultsContainer(_$Templater_7.compile(results[i]))

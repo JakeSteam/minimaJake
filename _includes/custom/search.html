@@ -10,7 +10,6 @@
       searchInput: document.getElementById('searchform'),
       resultsContainer: document.getElementById('searchresults'),
       json: '/assets/js/posts.json',
-      noResultsText: 'No results found :(',
       templateMiddleware: function(prop, value, template) {
         return value.replace(
           new RegExp(document.getElementById('search-input').value, "gi"), 
