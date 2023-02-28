@@ -418,7 +418,7 @@
     }
   
     function isValidQuery (query) {
-      return query && query.length > 0
+      return query && query.length > 1
     }
   
     function isWhitelistedKey (key) {
