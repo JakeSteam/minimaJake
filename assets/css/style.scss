@@ -184,9 +184,11 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
 .site-picker {
   line-height: 26px;
   border-bottom: 5px solid {{ site.accent_colour }};
+  text-align: center;
 }
 
 .site-tile {
   padding: 2px 10px 3px 10px;
-  color: #ffffff !important
+  color: #ffffff !important;
+  white-space: nowrap;
 }
