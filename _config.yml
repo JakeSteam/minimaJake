@@ -1,7 +1,7 @@
 # Basic site setup
 title: minimaJake
 description: An example of & updates from the minima fork minimaJake
-accent_colour: "#075e78"
+accent_colour: "#951A00"
 
 # Optional native feature customisation (delete to turn off)
 table_of_contents_header: "Jump to:"
@@ -16,6 +16,13 @@ giscus_category_id: DIC_kwDOI3xllM4CT62g
 kofi_id: internethistory
 kofi_button_text: Tip on Ko-fi
 kofi_floating_text: Tip / Suggest
+
+# Network site picker
+network:
+  - { name: Programming, url: "https://blog.jakelee.co.uk", colour: "#2a7ae2" }
+  - { name: Internet History, url: "https://history.jakelee.co.uk", colour: "#075e78" }
+  - { name: Theme, url: "https://minima.jakelee.co.uk", colour: "#951A00" }
+  - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
 
 # Social / dark mode settings
 minima:
