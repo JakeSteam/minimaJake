@@ -24,10 +24,11 @@ Native (liquid) features:
 * Pagination improvements
 * End of post call to action
 * Social & meta link system in footer
+* Network site picker 
 
 Third party features:
 
-* Search (via lunr.js)
+* Search
 * Giscus comments
 * Configurable Ko-fi donation button & floating prompt
 
