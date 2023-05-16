@@ -6,7 +6,7 @@ layout: none
     {
       "tags"     : "{{ post.tags | join: ', ' }}",
       "title"    : {{ post.title | jsonify | strip_html }},
-      "excerpt" : {{ post.excerpt | jsonify | strip_html }},
+      "excerpt"  : {{ post.excerpt | jsonify | strip_html }},
       "url"      : "{{ post.url }}",
       "date"     : "{{ post.date | date: "%b %-d, %Y" }}",
       "content"  : {{ post.content | jsonify | strip_html }}

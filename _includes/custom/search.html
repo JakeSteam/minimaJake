@@ -14,6 +14,7 @@
         if (prop === "title" || prop === "excerpt") {
           value = value.replace(/&amp;/g, "&");
         }
+        if (prop === "url") { return value }
         return value.replace(
           new RegExp(document.getElementById('search-input').value, "gi"), 
           '<span class="highlight">$&</span>'
