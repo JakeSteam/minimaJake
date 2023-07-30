@@ -22,6 +22,7 @@ network:
   - { name: Programming, url: "https://blog.jakelee.co.uk", colour: "#2a7ae2" }
   - { name: Internet History, url: "https://history.jakelee.co.uk", colour: "#075e78" }
   - { name: Theme, url: "https://minima.jakelee.co.uk", colour: "#951A00" }
+  - { name: Fiction, url: "https://fiction.jakelee.co.uk", colour: "#111b6d" }
   - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
 
 # Social / dark mode settings
