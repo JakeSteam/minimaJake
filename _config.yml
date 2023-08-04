@@ -7,6 +7,7 @@ accent_colour: "#951A00"
 table_of_contents_header: "Jump to:"
 post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a weekly newsletter of articles & found media!</b></i>
 google_analytics: G-HRJSZQJJ2G
+replace_read_time_with_word_count: true
 
 # Third party feature customisation (delete to turn off)
 giscus_repo: JakeSteam/minimaJake

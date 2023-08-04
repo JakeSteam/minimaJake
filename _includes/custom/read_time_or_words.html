@@ -1,0 +1,10 @@
+{% capture words %}
+{{ post.content | number_of_words }}
+{% endcapture %}
+{%- if site.replace_read_time_with_word_count -%}
+{% assign wordThousands = words | at_least: 100 | divided_by: 1000.0 | round: 1 %} 
+{{ wordThousands }}k words
+{%- else -%}
+{% assign minutes = words | divided_by: 160.0 | ceil %}
+{{ minutes }} min{% if minutes != 1 %}s{% endif %}
+{%- endif- %}

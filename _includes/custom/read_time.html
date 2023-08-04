@@ -1,5 +1,0 @@
-{% capture words %}
-{{ post.content | number_of_words }}
-{% endcapture %}
-{% assign minutes = words | divided_by: 160.0 | ceil %}
-{{ minutes }} min{% if minutes != 1 %}s{% endif %}
