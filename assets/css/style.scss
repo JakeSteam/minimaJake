@@ -45,6 +45,11 @@
   text-align: center;
 }
 
+blockquote {
+  text-indent: -35px !important;
+  padding-left: 50px !important;
+}
+
 /* Makes the meta info pretty */
 .contact-list li+li {
   padding-top: 5px;
