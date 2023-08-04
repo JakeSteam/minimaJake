@@ -18,13 +18,14 @@ The theme is imported via `remote_theme: JakeSteam/minimaJake`, optionally addin
 
 Native (liquid) features:
 
-* Table of contents
+* Table of contents (toggleable)
 * Linkable headers
 * Tag system
 * Pagination improvements
 * End of post call to action
 * Social & meta link system in footer
-* Network site picker 
+* Network site picker
+* Read time / word count (`replace_read_time_with_word_count`)
 
 Third party features:
 
