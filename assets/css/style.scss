@@ -162,16 +162,18 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
   border-radius: 0.25rem;
   padding-top: 15px;
   padding-right: 15px;
+  padding-bottom: 15px;
   margin-left: 15px;
 }
 
-.toc b {
+.toc summary {
   margin-left: 20px;
 }
 
 .toc ul {
   list-style: none;
   margin-left: 10px;
+  margin-bottom: 0px;
 }
 
 .toc li {
