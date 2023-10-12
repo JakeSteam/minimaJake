@@ -26,10 +26,10 @@ Native (liquid) features:
 * Social & meta link system in footer
 * Network site picker
 * Read time / word count (`replace_read_time_with_word_count`)
+* Search
 
 Third party features:
 
-* Search
 * Giscus comments
 * Configurable Ko-fi donation button & floating prompt
 

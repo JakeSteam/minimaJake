@@ -16,15 +16,18 @@ This is the live demo, a full guide to all features is available in [the announc
 
 Native (liquid) features:
 
-* Table of contents
+* Table of contents (toggleable & collapsible)
 * Linkable headers
 * Tag system
+* Pagination improvements
 * End of post call to action
 * Social & meta link system in footer
+* Network site picker
+* Read time / word count (`replace_read_time_with_word_count`)
+* Search
 
 Third party features:
 
-* Search (via lunr.js)
 * Giscus comments
 * Configurable Ko-fi donation button & floating prompt
 
@@ -32,4 +35,3 @@ Design changes:
 
 * Banner images
 * Accent colour system
-
