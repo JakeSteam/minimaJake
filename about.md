@@ -12,7 +12,7 @@ minimaJake is used to host [JakeSteam](https://github.com/JakeSteam)'s [personal
 
 This is the live demo, a full guide to all features is available in [the announcement post](https://blog.jakelee.co.uk/introducing-minimajake-for-jekyll/).
 
-## Changes
+## Additions
 
 Native (liquid) features:
 
@@ -23,6 +23,7 @@ Native (liquid) features:
 * End of post call to action
 * Social & meta link system in footer
 * Network site picker
+* Plaintext or HTML excerpts (`show_excerpts` / `show_excerpts_html`)
 * Read time / word count (`replace_read_time_with_word_count`)
 * Search
 

@@ -34,11 +34,11 @@ layout: default
             </a>
           </h3>
           <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }} • {% include custom/read_time_or_words.html %} • {% include custom/tags.html %}</span>
-          <p>
-            {%- if site.show_excerpts -%}
-              {{ post.excerpt | strip_html }}
-            {%- endif -%}
-          </p>
+          {%- if site.show_excerpts -%}
+            <p>{{ post.excerpt | strip_html }}</p>
+          {%- elsif site.show_excerpts_html -%}
+            {{ post.excerpt }}
+          {% endif %}
         </div>
       </li>
       {%- endfor -%}

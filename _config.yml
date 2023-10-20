@@ -58,7 +58,7 @@ minima:
 
 # Site settings
 permalink: /:title/
-show_excerpts: true
+show_excerpts_html: true
 timezone: Europe/London
 
 # Build settings
