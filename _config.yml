@@ -10,6 +10,8 @@ table_of_contents_collapsible: true
 post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a weeklyish newsletter of articles & found media!</b></i>
 google_analytics: G-HRJSZQJJ2G
 replace_read_time_with_word_count: true
+show_excerpts_html: true
+open_external_links_in_new_tab: false
 
 # Third party feature customisation (delete to turn off)
 giscus_repo: JakeSteam/minimaJake
@@ -58,7 +60,6 @@ minima:
 
 # Site settings
 permalink: /:title/
-show_excerpts_html: true
 timezone: Europe/London
 
 # Build settings

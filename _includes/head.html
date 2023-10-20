@@ -2,13 +2,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="twitter:site" content="@JakeLeeUK" />
-  <meta name="twitter:creator" content="@JakeLeeUK" />
   {%- seo -%}
   <link rel="stylesheet" href="/assets/css/style.css?v={{ site.theme_version }}">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
   {%- endif -%}
-  <script src="/assets/js/new_window.js" defer></script>
+
+  {% if site.open_external_links_in_new_tab != false %}
+    <script src="/assets/js/new_window.js" defer></script>
+  {% endif %}
 </head>

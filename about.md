@@ -23,6 +23,7 @@ Native (liquid) features:
 * End of post call to action
 * Social & meta link system in footer
 * Network site picker
+* Open external URLs in new tab (`open_external_links_in_new_tab`)
 * Plaintext or HTML excerpts (`show_excerpts` / `show_excerpts_html`)
 * Read time / word count (`replace_read_time_with_word_count`)
 * Search
