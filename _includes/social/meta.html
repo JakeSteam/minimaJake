@@ -1,7 +1,7 @@
 <ul class="contact-list">
 {%- for entry in site.minima.social_links -%}
-    {% if entry.user_title != blank? %}
-      {%- include social/meta-item.html item = entry -%}
-    {% endif %}
+  {% if entry.user_title != blank? %}
+    {%- include social/meta-item.html item = entry -%}
+  {% endif %}
 {%- endfor -%} 
 </ul>

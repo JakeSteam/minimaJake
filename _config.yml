@@ -37,7 +37,8 @@ minima:
     - { platform: github, user_url: "https://github.com/JakeSteam" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/Jake-Lee" }
     - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/608312/Jake-Lee" }
-    - { platform: twitter, user_url: "https://www.twitter.com/JakeLeeUK" }
+  #  - { platform: twitter, user_url: "https://www.twitter.com/JakeLeeUK" }
+    - { platform: x, user_url: "https://www.x.com/JakeLeeUK" }
     - { platform: email, user_url: "mailto:minima@jakelee.co.uk", user_title: "minima@jakelee.co.uk" }
     - { platform: code, user_url: "https://github.com/JakeSteam/minimaJake", user_title: "JakeSteam/minimaJake" }
     - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }

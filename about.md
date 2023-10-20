@@ -10,7 +10,7 @@ This project is a fork of the default [minima theme](https://github.com/jekyll/m
 
 minimaJake is used to host [JakeSteam](https://github.com/JakeSteam)'s [personal](https://jakelee.co.uk), [programming](https://blog.jakelee.co.uk), and [internet history](https://history.jakelee.co.uk) sites.
 
-This is the live demo, a full guide to all features is available in [the announcement post](https://blog.jakelee.co.uk/introducing-minimajake-for-jekyll/).
+This is the live demo, a full guide to all features present in initial release is available in [the announcement post](https://blog.jakelee.co.uk/introducing-minimajake-for-jekyll/).
 
 ## Additions
 
