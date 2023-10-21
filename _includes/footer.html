@@ -10,9 +10,13 @@
       <div class="footer-col">
         <p>{{ site.description | escape }}</p>
         <p>
-          <a href="https://pages.github.com/">GH Pages</a> v{{ site.github.versions.github-pages | default: 1.0 }}
-          <a href="https://jekyllrb.com/">Jekyll</a> v{{ site.github.versions.jekyll | default: 1.0 }}, 
-          <a href="https://github.com/JakeSteam/minimaJake">minimaJake</a> v{{ site.theme_version }}.
+          <a href="https://pages.github.com/">GH Pages</a> {{ site.github.versions.github-pages | default: 1.0 }}
+          <a href="https://jekyllrb.com/">Jekyll</a> {{ site.github.versions.jekyll | default: 1.0 }},
+          {% if site.theme_version %}
+          <a href="https://github.com/JakeSteam/minimaJake">minimaJake</a> {{ site.theme_version }}.
+          {% else %}
+          <a href="https://github.com/JakeSteam/minimaJake">minimaJake</a> {{ site.remote_theme | split: '@' | last }}.
+          {% endif %}
         </p>
       </div>
     </div>
