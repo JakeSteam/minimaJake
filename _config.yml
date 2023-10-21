@@ -2,7 +2,7 @@
 title: minimaJake
 description: An example of & updates from the minima fork minimaJake.
 accent_colour: "#951A00"
-theme_version: 1.0.10
+theme_version: 1.0.11
 
 # Optional native feature customisation (delete to turn off)
 table_of_contents_header: "Jump to:"
@@ -11,7 +11,7 @@ post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakewe
 google_analytics: G-HRJSZQJJ2G
 replace_read_time_with_word_count: true
 show_excerpts_html: true
-open_external_links_in_new_tab: false
+open_external_links_in_new_tab: true
 
 # Third party feature customisation (delete to turn off)
 giscus_repo: JakeSteam/minimaJake
