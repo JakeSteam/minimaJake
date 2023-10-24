@@ -28,6 +28,7 @@ network:
   - { name: Internet History, url: "https://history.jakelee.co.uk", colour: "#075e78" }
   - { name: Theme, url: "https://minima.jakelee.co.uk", colour: "#951A00" }
   - { name: Cat Charity, url: "https://news.codecured.org", colour: "#111b6d" }
+  - { name: Fragments, url: "https://fragments.jakelee.co.uk", colour: "#ad33a9" }
   - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
 
 # Social / dark mode settings
