@@ -23,7 +23,8 @@ layout: default
   </header>
 
   {% if site.table_of_contents_header != blank? %}
-    {% include custom/contents.html html=content sanitize=true h_max=4 %}
+    {% assign maxheader = page.maxheader | default: 4 %}
+    {% include custom/contents.html html=content sanitize=true h_max=maxheader %}
   {% endif %}
 
   <div class="post-content e-content" itemprop="articleBody">

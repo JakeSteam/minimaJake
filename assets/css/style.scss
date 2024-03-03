@@ -115,6 +115,11 @@ table {
 }
 
 /* Adds GitHub style links to headers on mouseover */
+.post-content h1 {
+  text-indent: -12px;
+  overflow-wrap: break-word;
+}
+
 .post-content h2 {
   text-indent: -10px;
   overflow-wrap: break-word;
