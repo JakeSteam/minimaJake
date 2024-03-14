@@ -170,8 +170,12 @@
             {% assign nodes = jekyll_toc | split: '>' %}
             {% capture jekyll_toc %}
                 <div class="toc">
-                    {%- if site.table_of_contents_collapsible != false -%}
-                        <details open>
+                    {%- if site.table_of_contents_collapsible != false %}
+                        {%- if page.table_of_contents_collapsed != false -%}
+                            <details open>
+                        {%- else %}
+                            <details>
+                        {%- endif -%}
                     {%- endif- %}
                             <summary><b>{{ site.table_of_contents_header }}</b></summary>
                             <{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}>
