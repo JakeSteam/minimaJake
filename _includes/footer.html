@@ -10,8 +10,10 @@
       <div class="footer-col">
         <p>{{ site.description | escape }}</p>
         <p>
+          {% if site.github.versions.github-pages %}
           <a href="https://pages.github.com/">GH Pages</a> {{ site.github.versions.github-pages | default: 1.0 }},
-          <a href="https://jekyllrb.com/">Jekyll</a> {{ site.github.versions.jekyll | default: 1.0 }},
+          {% endif %}
+          <a href="https://jekyllrb.com/">Jekyll</a> {{ jekyll.version | site.github.versions.jekyll | default: 1.0 }},
           {% if site.theme_version %}
           <a href="https://github.com/JakeSteam/minimaJake">minimaJake</a> {{ site.theme_version }}.
           {% else %}
