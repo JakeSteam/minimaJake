@@ -7,7 +7,7 @@ theme_version: 1.0.14
 # Optional native feature customisation (delete to turn off)
 table_of_contents_header: "Jump to:"
 table_of_contents_collapsible: true
-post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a weeklyish newsletter of articles & found media!</b></i>
+post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a newsletter of articles & online things!</b></i>
 google_analytics: G-HRJSZQJJ2G
 replace_read_time_with_word_count: true
 show_excerpts_html: true
