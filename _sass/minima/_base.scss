@@ -151,6 +151,10 @@ blockquote {
   i, em {
     font-style: normal;
   }
+
+  ul, ol {
+    list-style-position: inside;
+  }
 }
 
 
