@@ -17,7 +17,7 @@
           {% if site.theme_version %}
           <a href="https://github.com/JakeSteam/minimaJake">minimaJake</a> {{ site.theme_version }}.
           {% else %}
-          <a href="https://github.com/JakeSteam/minimaJake">minimaJake</a> {{ site.remote_theme | split: '@' | last }}.
+          <a href="https://github.com/JakeSteam/minimaJake">minimaJake</a> {{ site.remote_theme | split: '@' | last | replace: 'JakeSteam/minimaJake', 'latest'}}.
           {% endif %}
         </p>
       </div>
