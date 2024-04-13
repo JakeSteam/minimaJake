@@ -1,60 +1,77 @@
 <form id="searchform">
-  <p><input type="text" id="search-input" class="form-control" name="q" value="" autofocus /></p>
+  <p>
+    <input
+      type="search"
+      id="search-input"
+      class="form-control"
+      name="q"
+      value=""
+      autofocus
+    />
+  </p>
 </form>
 <ul id="searchresults" class="post-list"></ul>
 
 <script src="/assets/js/search.js" type="text/javascript"></script>
 
 <script>
-    var sjs = SimpleJekyllSearch({
-      searchInput: document.getElementById('searchform'),
-      resultsContainer: document.getElementById('searchresults'),
-      json: '/assets/js/posts.json',
-      templateMiddleware: function(prop, value, template) {
-        if (prop === "title" || prop === "excerpt") {
-          value = value.replace(/&amp;/g, "&");
-        }
-        if (prop === "url") { return value }
-        return value.replace(
-          new RegExp(document.getElementById('search-input').value, "gi"), 
-          '<span class="highlight">$&</span>'
-        )
-      },
-      sortMiddleware: function(a, b) {
-        aPrio = matchPriority(a.matchedField)
-        bPrio = matchPriority(b.matchedField)
-        return bPrio - aPrio
-      },
-      searchResultTemplate: "<li class='card'>" +
-          "<div class='content'>" +
-            "<a class='post-link' href='{url}'>{title}</a>" +
-            "<span class='post-meta'>{date} • {tags}</span>" +
-            "<p>{excerpt}</p>" +
-          "</div>" +
-        "</li>" 
-      })
-    
-    function matchPriority (fieldMatched) {
-      switch (fieldMatched) {
-        case 'tags':
-          return 5;
-        case 'title':
-          return 4;
-        case 'excerpt': 
-          return 3;
-        default: 
-          return 0;
+  var sjs = SimpleJekyllSearch({
+    searchInput: document.getElementById("searchform"),
+    resultsContainer: document.getElementById("searchresults"),
+    json: "/assets/js/posts.json",
+    templateMiddleware: function (prop, value, template) {
+      if (prop === "title" || prop === "excerpt") {
+        value = value.replace(/&amp;/g, "&");
       }
-    }
+      if (prop === "url") {
+        return value;
+      }
+      return value.replace(
+        new RegExp(document.getElementById("search-input").value, "gi"),
+        '<span class="highlight">$&</span>'
+      );
+    },
+    sortMiddleware: function (a, b) {
+      aPrio = matchPriority(a.matchedField);
+      bPrio = matchPriority(b.matchedField);
+      return bPrio - aPrio;
+    },
+    searchResultTemplate:
+      "<li class='card'>" +
+      "<div class='content'>" +
+      "<a class='post-link' href='{url}'>{title}</a>" +
+      "<span class='post-meta'>{date} • {tags}</span>" +
+      "<p>{excerpt}</p>" +
+      "</div>" +
+      "</li>",
+  });
 
-    window.addEventListener('load', function() {
-        var searchParam = new URLSearchParams(window.location.search).get("q")
-        if (searchParam != null) {
-            document.getElementById('search-input').value = searchParam
-            setTimeout(() => {
-              sjs.search(searchParam)
-            }, 100);
-        } 
-        document.getElementById('search-input').placeholder = "Type your search here..."
-    }, false);
+  function matchPriority(fieldMatched) {
+    switch (fieldMatched) {
+      case "tags":
+        return 5;
+      case "title":
+        return 4;
+      case "excerpt":
+        return 3;
+      default:
+        return 0;
+    }
+  }
+
+  window.addEventListener(
+    "load",
+    function () {
+      var searchParam = new URLSearchParams(window.location.search).get("q");
+      if (searchParam != null) {
+        document.getElementById("search-input").value = searchParam;
+        setTimeout(() => {
+          sjs.search(searchParam);
+        }, 100);
+      }
+      document.getElementById("search-input").placeholder =
+        "Type your search here...";
+    },
+    false
+  );
 </script>
