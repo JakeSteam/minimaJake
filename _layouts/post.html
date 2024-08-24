@@ -7,15 +7,18 @@ layout: default
     <a href="{{page.image}}"><div class="bg-img" style="background-image: url({{page.image}})"></div></a>
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      {%- assign display_date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: date_format }}
+        {{ page.date | date: display_date_format }}
       </time> 
-      {%- if page.last_modified_at and page.last_modified_at != page.date -%}
-        <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
-          <i>(updated {{ page.last_modified_at | date: date_format }})</i>
-        </time>
-      {%- endif -%}
+      {%- assign comparison_date_format = "%Y-%m-%d" -%}
+      {%- assign formatted_last_modified_at = page.last_modified_at | date: comparison_date_format -%}
+      {%- assign formatted_date = page.date | date: comparison_date_format -%}
+      {%- if page.last_modified_at and formatted_last_modified_at != formatted_date -%}
+        <i>
+          (updated <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: display_date_format }}</time>)
+        </i>
+      {%- endif -%} 
       {%- if page.author -%}
         • {% for author in page.author %}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
