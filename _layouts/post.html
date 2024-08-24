@@ -10,7 +10,12 @@ layout: default
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: date_format }}
-      </time>
+      </time> 
+      {%- if page.last_modified_at and page.last_modified_at != page.date -%}
+        <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+          <i>(updated {{ page.last_modified_at | date: date_format }})</i>
+        </time>
+      {%- endif -%}
       {%- if page.author -%}
         • {% for author in page.author %}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
