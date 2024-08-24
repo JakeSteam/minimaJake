@@ -93,7 +93,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-last-modified-at
 
 # Pagination settings
 paginate: 10

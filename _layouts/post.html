@@ -11,13 +11,10 @@ layout: default
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: display_date_format }}
       </time> 
-      {%- assign comparison_date_format = "%Y-%m-%d" -%}
-      {%- assign formatted_last_modified_at = page.last_modified_at | date: comparison_date_format -%}
-      {%- assign formatted_date = page.date | date: comparison_date_format -%}
-      {%- if page.last_modified_at and formatted_last_modified_at != formatted_date -%}
-        <i>
-          (updated <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: display_date_format }}</time>)
-        </i>
+      {%- if page.last_modified -%}
+          • Updated <time class="dt-updated" datetime="{{ page.last_modified | date_to_xmlschema }}" itemprop="dateModified">
+            {{ page.last_modified | date: display_date_format }}
+          </time>
       {%- endif -%} 
       {%- if page.author -%}
         • {% for author in page.author %}
