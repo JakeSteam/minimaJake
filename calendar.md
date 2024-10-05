@@ -7,6 +7,7 @@ title: Calendar
 
 <div class="calendar-container">
   {% for month in (1..12) %}
+    <!-- Month prep -->
     {% assign month_str = month | prepend: '0' | slice: -2, 2 %}
     {% assign month_start_date = current_year | append: '-' | append: month_str | append: '-01' %}
     {% assign month_start_timestamp = month_start_date | date: "%s" %}
@@ -14,9 +15,10 @@ title: Calendar
 
     <div class="calendar-month">
       <h2>{{ month_start_date | date: "%B" }}</h2>
-
       <div class="calendar-grid">
           <b>Mo</b><b>Tu</b><b>We</b><b>Th</b><b>Fr</b><b>Sa</b><b>Su</b>
+          <!-- First day finder, for correct formatting -->
+          <!-- Original: https://mikhail-yudin.ru/blog/frontend/jekyll-calendar-css-grid -->
           {%- for i in (-7..37) %}
             {%- assign day_timestamp = 86400 | times: i | plus: month_start_timestamp %}
             {%- assign day_of_week = day_timestamp | date: '%u' %}
@@ -28,21 +30,28 @@ title: Calendar
             {%- endunless %}
 
             {%- if month_str == month_number %}
-              {%- assign has_event = false %}
               {%- assign event_titles = "" %}
               {%- for post in site.posts %}
                 {%- for event in post.dates %}
                   {% assign event_date = event.date | date: "%m-%d" %}
                   {%- if event_date == formatted_day %}
-                    {%- assign has_event = true %}
-                    {%- assign event_titles = event_titles | append: event.title | append: ", " %}
+                    {%- assign event_year = event.date | date: "%Y" %}
+                    {%- assign years_ago = current_year | minus: event_year %}
+                    {%- if years_ago == 0 %}
+                      {%- assign years_ago_text = "This year: " %}
+                    {%- else %}
+                      {%- assign years_ago_text = years_ago | append: " years ago: " %}
+                    {%- endif %}
+                    {%- assign event_titles = event_titles | append: years_ago_text | append: event.title | append: "\n" %}
                   {%- endif %}
                 {%- endfor %}
               {%- endfor %}
 
-              <span class="{% if has_event %}calendar-event{% endif %}" data-events="{{ event_titles }}">
-                {{ day_timestamp | date: '%e' }}
-              </span>
+              {% if event_titles != "" %}
+                <span class="calendar-event" data-events="{{ event_titles }}">{{ day_timestamp | date: '%e' }}</span>
+              {% else %}
+                <span>{{ day_timestamp | date: '%e' }}</span>
+              {% endif %}
             {%- else %}<span></span>{% endif %}
           {%- endfor %}
 
@@ -61,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         day.addEventListener('click', function() {
             const events = this.getAttribute('data-events');
             if (events) {
-                alert('Events: ' + events);
+                alert('On this day:\n' + events.replace(/\\n/g, '\n'));
             }
         });
     });
@@ -70,9 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## Todo
 
+- Improve tooltip UI, to include links etc
 - Ensure text / border colour is CSS-controlled for light theme
-- Display tooltip showing all matching posts
-- Calculate years since
 - Precalculate results (like search) instead of on demand
 - Make config controlled, e.g. "custom-date" or "publish-date"
 
