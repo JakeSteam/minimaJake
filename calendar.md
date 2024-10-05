@@ -16,9 +16,7 @@ title: Calendar
       <h2>{{ month_start_date | date: "%B" }}</h2>
 
       <div class="calendar-grid">
-        <b>Mo</b><b>Tu</b><b>We</b><b>Th</b><b>Fr</b>
-        <b class="calendar-weekend">Sa</b>
-        <b class="calendar-weekend">Su</b>
+        <b>Mo</b><b>Tu</b><b>We</b><b>Th</b><b>Fr</b><b>Sa</b><b>Su</b>
         {%- for i in (-7..37) %}
           {%- assign day_timestamp = 86400 | times: i | plus: month_start_timestamp %}
           {%- assign day_of_week = day_timestamp | date: '%u' %}
@@ -30,21 +28,21 @@ title: Calendar
           {%- endunless %}
 
           {%- if month_str == month_number %}
-            {%- assign has_posts = '' %}
+            {%- assign has_event = false %}
             {%- for post in site.posts %}
               {%- for event in post.dates %}
                 {%- assign event_date = event.date | date: "%m-%d" %}
                 {%- if event_date == formatted_day %}
-                  {%- assign has_posts = 'calendar-event' %}
+                  {%- assign has_event = true %}
                   {%- break %}
                 {%- endif %}
               {%- endfor %}
-              {%- if has_posts != '' %}{% break %}{% endif %}
+              {%- if has_event %}{% break %}{% endif %}
             {%- endfor %}
             {%- case day_of_week %}
-              {%- when '6' %}<span class="calendar-weekend {{ has_posts }}">
-              {%- when '7' %}<span class="calendar-weekend {{ has_posts }}">
-              {%- else %}<span class="{{ has_posts }}">
+              {%- when '6' %}<span class="calendar-weekend {% if has_event %}calendar-event{% endif %}">
+              {%- when '7' %}<span class="calendar-weekend {% if has_event %}calendar-event{% endif %}">
+              {%- else %}<span class="{% if has_event %}calendar-event{% endif %}">
             {%- endcase %}{{ day_timestamp | date: '%e' }}</span>
           {%- else %}<span></span>{% endif %}
         {%- endfor %}
@@ -55,34 +53,14 @@ title: Calendar
 
 </div>
 
-<style>
-  .calendar-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  .calendar-month {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start; 
-  }
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 2rem);
-    line-height: 1.5rem;
-    text-align: center;
-  }
-  .calendar-weekend {
-    color: #e22;
-  }
-  .calendar-event {
-    font-weight: bold;
-  }
-</style>
+## Todo
 
-<!-- https://mikhail-yudin.ru/blog/frontend/jekyll-calendar-css-grid -->
+- Ensure text / border colour is CSS-controlled for light theme
+- Display tooltip showing all matching posts
+- Calculate years since
+- Precalculate results (like search) instead of on demand
+- Make config controlled, e.g. "custom-date" or "publish-date"
+
+## Resources
+
+- https://mikhail-yudin.ru/blog/frontend/jekyll-calendar-css-grid
