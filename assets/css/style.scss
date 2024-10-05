@@ -230,10 +230,6 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
   text-align: center;
 }
 
-.calendar-weekend {
-  opacity: 0.7;
-}
-
 .calendar-event {
   color: {{ site.accent_colour }};
   font-weight: bold;
