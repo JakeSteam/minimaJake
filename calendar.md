@@ -32,8 +32,14 @@ title: Calendar
           {%- if month_str == month_number %}
             {%- assign has_posts = '' %}
             {%- for post in site.posts %}
-              {%- assign post_date = post.date | date: "%m-%d" %}
-              {%- if post_date == formatted_day %}{% assign has_posts = 'calendar-event' %}{% break %}{% endif %}
+              {%- for event in post.dates %}
+                {%- assign event_date = event.date | date: "%m-%d" %}
+                {%- if event_date == formatted_day %}
+                  {%- assign has_posts = 'calendar-event' %}
+                  {%- break %}
+                {%- endif %}
+              {%- endfor %}
+              {%- if has_posts != '' %}{% break %}{% endif %}
             {%- endfor %}
             {%- case day_of_week %}
               {%- when '6' %}<span class="calendar-weekend {{ has_posts }}">
