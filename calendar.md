@@ -8,38 +8,38 @@ title: Calendar
 <div class="calendar-container">
   {% for month in (1..12) %}
     {% assign month_str = month | prepend: '0' | slice: -2, 2 %}
-    {% assign month_starts = current_year | append: '-' | append: month_str | append: '-01' %}
-    {% assign month_starts_ts = month_starts | date: "%s" %}
-    {% assign fd = false %}
+    {% assign month_start_date = current_year | append: '-' | append: month_str | append: '-01' %}
+    {% assign month_start_timestamp = month_start_date | date: "%s" %}
+    {% assign first_day_found = false %}
 
     <div class="calendar-month">
-      <h2>{{ month_starts | date: "%B" }}</h2>
+      <h2>{{ month_start_date | date: "%B" }}</h2>
 
-      <div class="calendar">
+      <div class="calendar-grid">
         <b>Mo</b><b>Tu</b><b>We</b><b>Th</b><b>Fr</b>
-        <b class="calendar__we">Sa</b>
-        <b class="calendar__we">Su</b>
+        <b class="calendar-weekend">Sa</b>
+        <b class="calendar-weekend">Su</b>
         {%- for i in (-7..37) %}
-          {%- assign day = 86400 | times: i | plus: month_starts_ts %}
-          {%- assign dow = day | date: '%u' %}
-          {%- assign m = day | date: '%m' %}
-          {%- assign dayf = day | date: "%Y-%m-%d" %}
-          {%- unless fd %}
-            {%- if dow == '7' %}{% assign fd = true %}{% endif %}
+          {%- assign day_timestamp = 86400 | times: i | plus: month_start_timestamp %}
+          {%- assign day_of_week = day_timestamp | date: '%u' %}
+          {%- assign month_number = day_timestamp | date: '%m' %}
+          {%- assign formatted_day = day_timestamp | date: "%m-%d" %}
+          {%- unless first_day_found %}
+            {%- if day_of_week == '7' %}{% assign first_day_found = true %}{% endif %}
             {%- continue %}
           {%- endunless %}
 
-          {%- if month_str == m %}
+          {%- if month_str == month_number %}
             {%- assign has_posts = '' %}
             {%- for post in site.posts %}
-              {%- assign d = post.date | date: "%Y-%m-%d" %}
-              {%- if d == dayf %}{% assign has_posts = 'calendar__ext' %}{% break %}{% endif %}
+              {%- assign post_date = post.date | date: "%m-%d" %}
+              {%- if post_date == formatted_day %}{% assign has_posts = 'calendar-event' %}{% break %}{% endif %}
             {%- endfor %}
-            {%- case dow %}
-              {%- when '6' %}<span class="calendar__we {{ has_posts }} ">
-              {%- when '7' %}<span class="calendar__we {{ has_posts }}">
+            {%- case day_of_week %}
+              {%- when '6' %}<span class="calendar-weekend {{ has_posts }}">
+              {%- when '7' %}<span class="calendar-weekend {{ has_posts }}">
               {%- else %}<span class="{{ has_posts }}">
-            {%- endcase %}{{ day | date: '%e' }}</span>
+            {%- endcase %}{{ day_timestamp | date: '%e' }}</span>
           {%- else %}<span></span>{% endif %}
         {%- endfor %}
       </div>
@@ -52,7 +52,7 @@ title: Calendar
 <style>
   .calendar-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
   }
   .calendar-month {
@@ -62,19 +62,19 @@ title: Calendar
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: center; 
+    justify-content: flex-start; 
   }
-  .calendar {
+  .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 2rem);
-    line-height: 2rem;
+    line-height: 1.5rem;
     text-align: center;
   }
-  .calendar__we {
+  .calendar-weekend {
     color: #e22;
   }
-  .calendar__ext {
+  .calendar-event {
     font-weight: bold;
   }
 </style>
