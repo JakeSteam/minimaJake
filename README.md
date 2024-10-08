@@ -19,6 +19,7 @@ The theme is imported via `remote_theme: JakeSteam/minimaJake` in your `config.y
 Native (liquid) features:
 
 - Table of contents (toggleable & collapsible)
+- Calendar with custom events
 - Linkable headers
 - Tag system
 - Pagination improvements
