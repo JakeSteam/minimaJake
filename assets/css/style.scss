@@ -220,7 +220,6 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
 }
 
 .calendar-grid {
@@ -233,4 +232,10 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
 .calendar-event {
   color: {{ site.accent_colour }};
   font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.calendar-event:hover {
+  color: lighten({{ site.accent_colour }}, 10%);
 }

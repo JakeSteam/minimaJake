@@ -20,12 +20,14 @@
             {%- assign month_number = day_timestamp | date: '%m' %}
             {%- assign formatted_day = day_timestamp | date: "%m-%d" %}
             {%- unless first_day_found %}
-              {%- if day_of_week == '7' %}{% assign first_day_found = true %}{% endif %}
+              {%- if day_of_week == '7' %}
+                {% assign first_day_found = true %}
+              {% endif %}
               {%- continue %}
             {%- endunless %}
 
             {%- if month_str == month_number %}
-              {%- assign event_titles = "" %}
+              {%- assign events = "" %}
               {%- for post in site.posts %}
                 {%- for event in post.dates %}
                   {% assign event_date = event.date | date: "%m-%d" %}
@@ -37,13 +39,13 @@
                     {%- else %}
                       {%- assign years_ago_text = "<b>" | append: years_ago | append: " years ago:</b> " %}
                     {%- endif %}
-                    {%- assign event_titles = event_titles | append: years_ago_text | append: event.title | append: " <i>(in <a href='" | append: post.url | append: "'>" | append: post.title | append: "</a>)</i><br>" %}
+                    {%- assign events = events | append: years_ago_text | append: event.title | append: " <i>(in <a href='" | append: post.url | append: "'>" | append: post.title | append: "</a>)</i><br>" %}
                   {%- endif %}
                 {%- endfor %}
               {%- endfor %}
 
-              {% if event_titles != "" %}
-                <span class="calendar-event" data-events="{{ event_titles }}">{{ day_timestamp | date: '%e' }}</span>
+              {% if events != "" %}
+                <span class="calendar-event" data-events="{{ events }}">{{ day_timestamp | date: '%e' }}</span>
               {% else %}
                 <span>{{ day_timestamp | date: '%e' }}</span>
               {% endif %}
@@ -59,7 +61,9 @@
 
 <dialog id="eventDialog">
   <p id="eventContent"></p>
-  <button id="closeDialog">Close</button>
+  <form method="dialog">
+    <button autofocus>Close</button>
+  </form>
 </dialog>
 
 <script>
@@ -78,20 +82,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    closeDialog.addEventListener('click', function() {
-        dialog.close();
-    });
 });
 </script>
-
-## Todo
-
-- Improve tooltip UI, to include links etc
-- Ensure text / border colour is CSS-controlled for light theme
-- Precalculate results (like search) instead of on demand
-- Make config controlled, e.g. "custom-date" or "publish-date"
-
-## Resources
-
-- https://mikhail-yudin.ru/blog/frontend/jekyll-calendar-css-grid
