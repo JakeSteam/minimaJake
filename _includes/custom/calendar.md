@@ -74,13 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeDialog = document.getElementById('closeDialog');
 
     eventDays.forEach(day => {
-        day.addEventListener('click', function() {
-            const events = this.getAttribute('data-events');
-            if (events) {
-                eventContent.innerHTML = '<h3>On this day:</h3>' + events;
-                dialog.showModal();
-            }
-        });
+      day.addEventListener('click', function() {
+        eventContent.innerHTML = '<h3>On this day:</h3>' + this.getAttribute('data-events');
+        dialog.showModal();
+      });
     });
 });
 </script>
