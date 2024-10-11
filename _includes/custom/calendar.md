@@ -13,17 +13,18 @@
       <div class="calendar-grid">
           <b>Mo</b><b>Tu</b><b>We</b><b>Th</b><b>Fr</b><b>Sa</b><b>Su</b>
           <!-- First day finder, for correct formatting -->
-          <!-- Original: https://mikhail-yudin.ru/blog/frontend/jekyll-calendar-css-grid -->
+          <!-- Adapted from: https://mikhail-yudin.ru/blog/frontend/jekyll-calendar-css-grid -->
           {%- for i in (-7..30) %}
             {%- assign day_timestamp = 86400 | times: i | plus: month_start_timestamp %}
             {%- assign day_of_week = day_timestamp | date: '%u' %}
             {%- assign month_number = day_timestamp | date: '%m' %}
             {%- assign formatted_day = day_timestamp | date: "%m-%d" %}
             {%- unless first_day_found %}
-              {%- if day_of_week == '7' %}
+              {%- if day_of_week == '1' %}
                 {% assign first_day_found = true %}
+              {% else %}
+                {%- continue %}
               {% endif %}
-              {%- continue %}
             {%- endunless %}
 
             {%- if month_str == month_number %}
@@ -71,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const eventDays = document.querySelectorAll('.calendar-event');
     const dialog = document.getElementById('eventDialog');
     const eventContent = document.getElementById('eventContent');
-    const closeDialog = document.getElementById('closeDialog');
 
     eventDays.forEach(day => {
       day.addEventListener('click', function() {
