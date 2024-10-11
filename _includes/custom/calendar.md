@@ -14,7 +14,7 @@
           <b>Mo</b><b>Tu</b><b>We</b><b>Th</b><b>Fr</b><b>Sa</b><b>Su</b>
           <!-- First day finder, for correct formatting -->
           <!-- Original: https://mikhail-yudin.ru/blog/frontend/jekyll-calendar-css-grid -->
-          {%- for i in (-7..37) %}
+          {%- for i in (-7..30) %}
             {%- assign day_timestamp = 86400 | times: i | plus: month_start_timestamp %}
             {%- assign day_of_week = day_timestamp | date: '%u' %}
             {%- assign month_number = day_timestamp | date: '%m' %}
