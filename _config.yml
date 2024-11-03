@@ -40,6 +40,10 @@ network:
   - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
 
 # Social / dark mode settings
+author:
+  name: Jake Lee
+  url: https://jakelee.co.uk
+
 minima:
   skin: auto
   social_links:
