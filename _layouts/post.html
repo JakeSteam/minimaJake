@@ -16,12 +16,11 @@ layout: default
             {{ page.last_modified_at | date: display_date_format }}
           </time>
       {%- endif -%} 
-      {%- if page.author -%}
-        • {% for author in page.author %}
-          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }} </span></span>
-            {%- if forloop.last == false %}, {% endif -%}
-        {% endfor %}
+      {% assign author_name = page.author.name | default: site.author.name %}
+      {%- if author_name -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">{{ author_name }} </span>
+        </span>
       {%- endif -%}
       •
       {% include custom/tags.html %}</p>

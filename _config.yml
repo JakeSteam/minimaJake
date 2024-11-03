@@ -23,6 +23,17 @@ kofi_id: internethistory
 kofi_button_text: Tip on Ko-fi
 kofi_floating_text: Tip / Suggest
 
+# Setting article defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+author:
+  name: Jake Lee
+  url: https://jakelee.co.uk
+
 # Network site picker
 network:
   - { name: Programming, url: "https://blog.jakelee.co.uk", colour: "#2a7ae2" }
@@ -40,10 +51,6 @@ network:
   - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
 
 # Social / dark mode settings
-author:
-  name: Jake Lee
-  url: https://jakelee.co.uk
-
 minima:
   skin: auto
   social_links:
