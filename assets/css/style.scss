@@ -171,6 +171,15 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
   margin-left: 15px;
 }
 
+@media screen and (max-width: $on-medium) {
+  .toc {
+    float: none;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    padding: 15px 10px;
+  }
+}
+
 .toc summary {
   margin-left: 20px;
 }
