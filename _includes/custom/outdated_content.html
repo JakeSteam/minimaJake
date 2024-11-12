@@ -17,7 +17,7 @@
             {% assign time_since = days_since_last_modified | append: " days ago" %}
         {% endif %}
         <div class="outdated-warning">
-        ⚠️ {{ site.outdated_content_warning.warning_text | replace: site.outdated_content_warning.placeholder_text, time_since }}
+            {{ site.outdated_content_warning.warning_text | replace: site.outdated_content_warning.placeholder_text, time_since }}
         </div>
     {% endif %}
 {% endif %}
