@@ -14,7 +14,7 @@ replace_read_time_with_word_count: true
 show_excerpts_html: true
 open_external_links_in_new_tab: true
 outdated_content_warning:
-  warning_text: "⚠️ This article was last updated <b><DATE></b> and may be outdated."
+  warning_text: "⚠️ These release notes were last updated <b><DATE></b> and may be outdated."
   placeholder_text: "<DATE>"
   warning_threshold_days: 365
   ignore_date_updated: false
