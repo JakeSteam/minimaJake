@@ -13,6 +13,11 @@ google_analytics: G-HRJSZQJJ2G
 replace_read_time_with_word_count: true
 show_excerpts_html: true
 open_external_links_in_new_tab: true
+outdated_content_warning:
+  warning_text: "This article was last updated <DATE> and may be outdated."
+  placeholder_text: "<DATE>"
+  warning_threshold_days: 1095 # 3 years
+  ignore_date_updated: false
 
 # Third party feature customisation (delete to turn off)
 giscus_repo: JakeSteam/minimaJake
