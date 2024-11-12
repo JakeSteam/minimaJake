@@ -24,29 +24,7 @@ layout: default
       {%- endif -%}
       •
       {% include custom/tags.html %}</p>
-
-      {% if site.outdated_content_warning and page.hide_content_warning != true %}
-
-        {% assign content_date = page.last_modified_at | date: "%s" %}
-        {% if site.outdated_content_warning.ignore_date_updated or page.last_modified_at == nil %}
-          {% assign content_date = page.date | date: "%s" %}
-        {% endif %}
-
-        {% assign current_date = "now" | date: "%s" %}
-        {% assign days_since_last_modified = current_date | minus: content_date | divided_by: 86400 %}
-
-        {% if days_since_last_modified > site.outdated_content_warning.warning_threshold_days %}
-          {% assign years = days_since_last_modified | divided_by: 365 %}
-          {% if years > 0 %}
-            {% assign time_since = "over <b>" | append: years | append: " years ago</b>" %}
-          {% else %}
-            {% assign time_since = "<b>" | append: days_since_last_modified | append: " days ago</b>" %}
-          {% endif %}
-          <div class="outdated-warning">
-            ⚠️ {{ site.outdated_content_warning.warning_text | replace: site.outdated_content_warning.placeholder_text, time_since }}
-          </div>
-        {% endif %}
-      {% endif %}
+      {% include custom/outdated_content.html %}
   </header>
 
   {% if site.table_of_contents_header != blank? %}

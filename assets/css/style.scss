@@ -214,6 +214,13 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
   white-space: nowrap;
 }
 
+/* Outdated content warning */
+.outdated-warning {
+  padding: 0.75rem 1rem;
+  border: 1px solid {{ site.accent_colour }};
+  border-radius: 0.25rem;
+}
+
 /* Calendar */
 .calendar-container {
   display: grid;
