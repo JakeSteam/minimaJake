@@ -29,6 +29,7 @@ Native (liquid) features:
 - Plaintext or HTML excerpts (`show_excerpts` / `show_excerpts_html`)
 - Read time / word count (`replace_read_time_with_word_count`)
 - Modified date (`last_modified_at`)
+- Outdated content warning (`outdated_content_warning`)
 - Search
 
 Third party features:
