@@ -118,10 +118,7 @@ kramdown:
 # Webp conversion settings
 webp: 
   enabled: true
-  quality: 80
+  quality: 95
   img_dir: ["/images"]
   nested: true
   formats: [".jpeg", ".jpg", ".png"]
-  gifs: [".gif"]
-  regenerate: false
-  location_prefix: "/images/"

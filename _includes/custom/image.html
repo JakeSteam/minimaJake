@@ -7,11 +7,11 @@
 {% assign base_path = path | slice: 0, base_path_length %}
 
 {%- if link_to_images -%}
-<a href="{{ site.webp.location_prefix }}{{ path }}">
+<a href="{{ site.webp.img_dir | first }}/{{ path }}">
 {%- endif -%}
     <picture>
-        <source type="image/webp" srcset="{{ site.webp.location_prefix }}{{ base_path }}.webp" >
-        <img src="{{ site.webp.location_prefix}}{{ path }}" />
+        <source type="image/webp" srcset="{{ site.webp.img_dir | first }}/{{ base_path }}.webp" >
+        <img src="{{ site.webp.img_dir | first }}/{{ path }}" />
     </picture>
 {%- if link_to_images -%}
 </a>
