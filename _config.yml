@@ -114,3 +114,14 @@ kramdown:
   syntax_highlighter_opts:
     default_lang: kotlin
     guess_lang: true
+
+# Webp conversion settings
+webp: 
+  enabled: true
+  quality: 80
+  img_dir: ["/images"]
+  nested: true
+  formats: [".jpeg", ".jpg", ".png"]
+  gifs: [".gif"]
+  regenerate: false
+  location_prefix: "/images/"

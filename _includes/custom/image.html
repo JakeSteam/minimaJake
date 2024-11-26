@@ -1,0 +1,18 @@
+{% assign link_to_images = include.clickable | default: true %}
+{% assign path = include.path %}
+
+{% assign image_parts = path | split: '.' %}
+{% assign extension_length = image_parts | last | size | plus: 1 %}
+{% assign base_path_length = path | size | minus: extension_length %}
+{% assign base_path = path | slice: 0, base_path_length %}
+
+{%- if link_to_images -%}
+<a href="{{ site.webp.location_prefix }}{{ path }}">
+{%- endif -%}
+    <picture>
+        <source type="image/webp" srcset="{{ site.webp.location_prefix }}{{ base_path }}.webp" >
+        <img src="{{ site.webp.location_prefix}}{{ path }}" />
+    </picture>
+{%- if link_to_images -%}
+</a>
+{%- endif -%}
