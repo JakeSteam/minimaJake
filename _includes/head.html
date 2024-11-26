@@ -6,10 +6,15 @@
   {%- if page.last_modified_at -%}
   <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}" />
   {%- endif -%}
-  <link
-    rel="stylesheet"
-    href="/assets/css/style.css?v={{ site.theme_version }}"
-  />
+
+  {% if site.theme_version %}
+  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.theme_version }}" />
+  {% else %}
+    {% assign current_year = "now" | date: "%Y" %}
+    {% assign current_week = "now" | date: "%V" %}
+    {% assign year_week_string = current_year | append: "-" | append: current_week %}
+    <link rel="stylesheet" href="/assets/css/style.css?v={{ site.remote_theme | split: '@' | last | replace: 'JakeSteam/minimaJake', year_week_string}}" />.
+  {% endif %}
   <link
     rel="apple-touch-icon"
     sizes="180x180"
