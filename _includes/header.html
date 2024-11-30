@@ -3,7 +3,9 @@
     <div class="wrapper">
       {%- for link in site.network -%}
         <a href="{{ link.url }}" class="site-tile" style="background: {{ link.colour }}">
+          {% unless link.current == true %}
           <span class="darken"></span>
+          {% endunless %}
           <span>{{ link.name }}</span>
         </a>&nbsp; 
       {%- endfor -%}

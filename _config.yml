@@ -47,7 +47,7 @@ network:
       url: "https://history.jakelee.co.uk",
       colour: "#075e78",
     }
-  - { name: Theme, url: "https://minima.jakelee.co.uk", colour: "#951A00" }
+  - { name: Theme, url: "https://minima.jakelee.co.uk", colour: "#951A00", current: true }
   - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
 
 # Social / dark mode settings
