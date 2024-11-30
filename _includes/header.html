@@ -2,7 +2,10 @@
   <div class="site-picker">
     <div class="wrapper">
       {%- for link in site.network -%}
-        <a href="{{ link.url }}" class="site-tile" style="background: {{ link.colour }}">{{ link.name }}</a>&nbsp; 
+        <a href="{{ link.url }}" class="site-tile" style="background: {{ link.colour }}">
+          <span class="darken"></span>
+          <span>{{ link.name }}</span>
+        </a>&nbsp; 
       {%- endfor -%}
     </div>
   </div>
