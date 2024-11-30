@@ -11,7 +11,7 @@ table_of_contents_collapsible: true
 post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a newsletter of articles & online things!</b></i>
 google_analytics: G-HRJSZQJJ2G
 replace_read_time_with_word_count: true
-show_excerpts_html: false
+show_excerpts: true
 open_external_links_in_new_tab: true
 outdated_content_warning:
   warning_text: "⚠️ These release notes were last updated <b><DATE></b> and may be outdated."

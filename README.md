@@ -31,6 +31,7 @@ Native (liquid) features:
 - Modified date (`last_modified_at`)
 - Outdated content warning (`outdated_content_warning`)
 - Search
+- Automatic `.webp` generation & displaying (`webp:` in config)
 
 Third party features:
 
