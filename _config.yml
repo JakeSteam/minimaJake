@@ -114,3 +114,12 @@ kramdown:
   syntax_highlighter_opts:
     default_lang: kotlin
     guess_lang: true
+
+# Webp conversion settings
+webp: 
+  enabled: true
+  quality: 95
+  img_dir: ["/images/banners"]
+  nested: true
+  regenerate: true # Set to true if settings have been changed
+  formats: [".jpeg", ".jpg", ".png"]
