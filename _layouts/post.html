@@ -4,7 +4,9 @@ layout: default
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <a href="{{page.image}}"><div class="bg-img" style="background-image: url({{page.image}})"></div></a>
+    <a href="{{page.image}}">
+      {% include custom/webp.html path=page.image %}
+    </a>
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       {%- assign display_date_format = site.minima.date_format | default: "%b %-d, %Y" -%}

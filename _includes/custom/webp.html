@@ -1,0 +1,16 @@
+{% assign path = include.path %}
+
+{% assign image_parts = path | split: '.' %}
+{% assign extension_length = image_parts | last | size | plus: 1 %}
+{% assign base_path_length = path | size | minus: extension_length %}
+{% assign base_path = path | slice: 0, base_path_length %}
+
+{% assign webp_path = base_path | append: '.webp' %}
+{% assign webp_exists = site.static_files | where: "path", webp_path | first %}
+
+<picture class="bg-img">
+    {% if webp_exists %}
+    <source type="image/webp" srcset="{{ webp_path }}" >
+    {% endif %}
+    <img src="{{ path }}" alt="Preview image of article" />
+</picture>

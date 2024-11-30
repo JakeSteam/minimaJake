@@ -119,6 +119,7 @@ kramdown:
 webp: 
   enabled: true
   quality: 95
-  img_dir: ["/images"]
+  img_dir: ["/images/banners"]
   nested: true
+  regenerate: true # Set to true if settings have been changed
   formats: [".jpeg", ".jpg", ".png"]

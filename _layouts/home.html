@@ -23,7 +23,7 @@ layout: default
       {%- for post in posts -%}
       <li class="card">
         <a class="post-link" href="{{ post.url | relative_url }}">
-          <div class="bg-img" style="background-image: url({{post.image}})"></div>
+          {% include custom/webp.html path=post.image %}
         </a>
         <div class="content">
           <h3>
