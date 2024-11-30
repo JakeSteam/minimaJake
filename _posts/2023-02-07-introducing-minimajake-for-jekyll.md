@@ -1,6 +1,6 @@
 ---
 title: Introducing 'minimaJake', a minima theme fork for Jekyll with years of improvements & design changes!
-image: https://blog.jakelee.co.uk/assets/images/2023/minimajake.png
+image: /images/banners/minimajake.png
 tags:
   - Minima
   - Jekyll

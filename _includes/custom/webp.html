@@ -1,4 +1,5 @@
 {% assign path = include.path %}
+{% assign alt = include.alt | default: "article" %}
 
 {% assign image_parts = path | split: '.' %}
 {% assign extension_length = image_parts | last | size | plus: 1 %}
@@ -12,5 +13,5 @@
     {% if webp_exists %}
     <source type="image/webp" srcset="{{ webp_path }}" >
     {% endif %}
-    <img src="{{ path }}" alt="Preview image of article" />
+    <img src="{{ path }}" alt="Preview image of {{ alt | escape }}" />
 </picture>
