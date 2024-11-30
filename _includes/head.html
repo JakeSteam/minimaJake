@@ -13,7 +13,7 @@
     {% assign current_year = "now" | date: "%Y" %}
     {% assign current_week = "now" | date: "%V" %}
     {% assign year_week_string = current_year | append: "-" | append: current_week %}
-    <link rel="stylesheet" href="/assets/css/style.css?v={{ site.remote_theme | split: '@' | last | replace: 'JakeSteam/minimaJake', year_week_string}}" />.
+    <link rel="stylesheet" href="/assets/css/style.css?v={{ site.remote_theme | split: '@' | last | replace: 'JakeSteam/minimaJake', year_week_string}}" />
   {% endif %}
   <link
     rel="apple-touch-icon"

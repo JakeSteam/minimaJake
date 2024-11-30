@@ -121,5 +121,5 @@ webp:
   quality: 95
   img_dir: ["/images/banners"]
   nested: true
-  regenerate: true # Set to true if settings have been changed
+  regenerate: false # Set to true if settings have been changed
   formats: [".jpeg", ".jpg", ".png"]
