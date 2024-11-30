@@ -216,17 +216,24 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
   white-space: nowrap;
 }
 
-.site-tile .darken {
+.site-tile span {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
-.site-tile span {
+.site-tile .current {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 80%);
+}
+
+.site-tile .others {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.site-tile .text {
   position: relative;
   z-index: 2;
 }
