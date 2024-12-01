@@ -1,46 +1,43 @@
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
   {%- if page.last_modified_at -%}
-  <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}" />
+  <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
   {%- endif -%}
 
   {% if site.theme_version %}
-  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.theme_version }}" />
+  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.theme_version }}">
   {% else %}
     {% assign current_year = "now" | date: "%Y" %}
     {% assign current_week = "now" | date: "%V" %}
     {% assign year_week_string = current_year | append: "-" | append: current_week %}
-    <link rel="stylesheet" href="/assets/css/style.css?v={{ site.remote_theme | split: '@' | last | replace: 'JakeSteam/minimaJake', year_week_string}}" />
+    <link rel="stylesheet" href="/assets/css/style.css?v={{ site.remote_theme | split: '@' | last | replace: 'JakeSteam/minimaJake', year_week_string}}">
   {% endif %}
   <link
     rel="apple-touch-icon"
     sizes="180x180"
     href="/assets/images/icon/apple-touch-icon.png"
-  />
+  >
   <link
     rel="icon"
     type="image/png"
     sizes="32x32"
     href="/assets/images/icon/favicon-32x32.png"
-  />
+  >
   <link
     rel="icon"
     type="image/png"
     sizes="16x16"
     href="/assets/images/icon/favicon-16x16.png"
-  />
-  <link rel="manifest" href="/assets/images/icon/site.webmanifest" />
-  <link rel="shortcut icon" href="/assets/images/icon/favicon.ico" />
-  <meta name="msapplication-TileColor" content="#da532c" />
-  <meta
-    name="msapplication-config"
-    content="/assets/images/icon/browserconfig.xml"
-  />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="manifest" href="/assets/images/icon/site.webmanifest" />
+  >
+  <link rel="manifest" href="/assets/images/icon/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/images/icon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/assets/images/icon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="/assets/images/icon/site.webmanifest">
   {%- feed_meta -%} {%- if jekyll.environment == 'production' and
   site.google_analytics -%} {%- include google-analytics.html -%} {%- endif -%}
   {% if site.open_external_links_in_new_tab != false %}
