@@ -116,33 +116,7 @@ table {
 }
 
 /* Adds GitHub style links to headers on mouseover */
-.post-content h1 {
-  text-indent: -12px;
-  overflow-wrap: break-word;
-}
-
-.post-content h2 {
-  text-indent: -10px;
-  overflow-wrap: break-word;
-}
-
-.post-content h3 {
-  text-indent: -8px;
-  overflow-wrap: break-word;
-}
-
-.post-content h4 {
-  text-indent: -6px;
-  overflow-wrap: break-word;
-}
-
-.post-content h5 {
-  text-indent: -4px;
-  overflow-wrap: break-word;
-}
-
-.post-content h6 {
-  text-indent: -2px;
+.post-content {
   overflow-wrap: break-word;
 }
 
@@ -157,7 +131,6 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
 .octicon {
   fill: currentColor;
   padding: 0;
-  margin-left: -16px;
   vertical-align: middle;
 }
 
