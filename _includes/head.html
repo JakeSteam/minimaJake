@@ -2,7 +2,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {%- seo -%}
+  {% capture seo_tag_output %}
+    {%- seo -%}
+  {% endcapture %}
+  {{ seo_tag_output | replace: " />", ">" }}
   {%- if page.last_modified_at -%}
   <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
   {%- endif -%}
